@@ -1,0 +1,8 @@
+{
+  "name": "naija-career-compass-ai",
+  "version": "1.0.0",
+  "description": "Pick what you enjoy. The AI suggests three careers with real Nigerian routes. Built by Yewa College students.",
+  "private": true,
+  "scripts": { "start": "node dev-server.js" },
+  "engines": { "node": ">=18" }
+}

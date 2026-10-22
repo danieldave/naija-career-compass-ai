@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Naija Career Compass AI</title>
+<meta name="description" content="Pick what you enjoy. The AI suggests three careers with real Nigerian routes into them. No name or age needed.">
+<link rel="icon" href="images/logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<!-- WHERE IS THE AI KITCHEN? Leave it as "api/ask" on Vercel.
+     On GitHub Pages, put your Vercel address here, for example "https://naija-career-compass.vercel.app/api/ask". -->
+<script>window.CC_API = "api/ask";</script>
+</head>
+<body>
+<div class="page">
+
+  <!-- PART 1: the header (logo + name) -->
+  <header class="top">
+    <img class="logo" src="images/logo.svg" alt="Naija Career Compass logo: a compass">
+    <h1>NAIJA CAREER COMPASS <span>AI</span></h1>
+  </header>
+
+  <!-- PART 2: the problem we solve -->
+  <p class="problem">Secondary and tertiary students often have limited awareness of the full range of career opportunities available to them, and existing career guidance is often generic or disconnected from their actual interests and strengths.</p>
+
+  <!-- PART 3: what to do -->
+  <p class="howto"><b>Pick what you enjoy.</b> The AI suggests three careers with real Nigerian routes into them, according to your interests, strengths and areas of curiosity. <b>No name or age needed.</b></p>
+
+  <div id="demoBanner" class="banner" hidden>DEMO MODE: these are sample ideas chosen by our code, not by the AI.</div>
+
+  <main class="two">
+    <!-- PART 4: the form (the inputs) -->
+    <form id="form" class="card form" novalidate>
+      <label>My favourite subject
+        <select id="subject" required>
+          <option value="">Choose a subject</option>
+          <option>Mathematics</option><option>English Language</option><option>Biology</option><option>Chemistry</option>
+          <option>Physics</option><option>Agricultural Science</option><option>Computer Studies</option><option>Basic Technology</option>
+          <option>Technical Drawing</option><option>Fine Art</option><option>Music</option><option>Literature in English</option>
+          <option>Government</option><option>Economics</option><option>Commerce</option><option>Geography</option>
+          <option>Home Economics</option><option>Food and Nutrition</option><option>Clothing and Textiles</option>
+          <option>Physical and Health Education</option><option>Civic Education</option><option>Yoruba</option><option>Igbo</option><option>Hausa</option>
+        </select>
+      </label>
+      <label>What do you enjoy doing?
+        <input id="enjoy" list="enjoyList" maxlength="120" placeholder="Pick or type, e.g. fixing things" required>
+      </label>
+      <label>What do you lose track of time doing?
+        <input id="loseTime" list="timeList" maxlength="120" placeholder="Pick or type, e.g. drawing" required>
+      </label>
+      <label>What are you curious about?
+        <input id="curious" list="curiousList" maxlength="120" placeholder="Pick or type, e.g. how phones work" required>
+      </label>
+      <label>What skills or abilities come naturally to you?
+        <input id="natural" list="naturalList" maxlength="120" placeholder="Pick or type, e.g. good with my hands" required>
+      </label>
+      <label>What game do you like playing that is not educational?
+        <input id="game" list="gameList" maxlength="120" placeholder="Pick or type, e.g. football, Ludo, Whot">
+      </label>
+      <div class="pair">
+        <label>What level of education are you aiming for?
+          <select id="level" required>
+            <option value="">Choose</option>
+            <option>Secondary school (WAEC/NECO), then learn a trade</option>
+            <option>Technical college (NABTEB)</option>
+            <option>Polytechnic (ND/HND)</option>
+            <option>College of Education (NCE)</option>
+            <option>University degree</option>
+            <option>Not sure yet</option>
+          </select>
+        </label>
+        <label>Where do you love to work?
+          <select id="workplace" required>
+            <option value="">Choose</option>
+            <option>In an office</option><option>Outdoors</option><option>In a workshop, with my hands</option>
+            <option>In a hospital or a lab</option><option>On a farm</option><option>In a kitchen, shop or market</option>
+            <option>At home or online</option><option>On a stage or in a studio</option><option>In a school</option><option>Not sure yet</option>
+          </select>
+        </label>
+      </div>
+      <label>Anything else (optional)
+        <textarea id="extra" maxlength="300" rows="3" placeholder="Anything else you want the AI to know. Please do not type your name, age or phone number."></textarea>
+      </label>
+      <p id="error" class="error" role="alert"></p>
+      <button id="go" type="submit">Show me 3 careers</button>
+      <p class="small">There is no sign-up and nothing is saved. A privacy filter removes phone numbers, emails, ID numbers, names and ages before anything reaches the AI.</p>
+    </form>
+
+    <!-- PART 5: the output -->
+    <section class="card output" aria-live="polite">
+      <h2>Output</h2>
+      <div id="output">
+        <div class="empty"><img src="images/logo.svg" alt=""><p>Your 3 careers will appear here, each with a picture, the reason we chose it, the subjects to focus on and real Nigerian routes into it.</p></div>
+      </div>
+      <button id="printBtn" class="ghost" type="button" hidden>Print my careers</button>
+    </section>
+  </main>
+
+  <!-- PART 6: how it works -->
+  <section class="how card">
+    <h2>How it works</h2>
+    <div class="flow">
+      <div><b>1. You</b>answer the questions</div><span>→</span>
+      <div><b>2. Our code</b>puts your answers into lists, removes private details and checks them</div><span>→</span>
+      <div><b>3. The AI model</b>reads our rules + your answers and replies with exactly 3 careers as JSON</div><span>→</span>
+      <div><b>4. Our code</b>checks the guardrails and turns the JSON into cards with pictures</div>
+    </div>
+    <div class="grid3">
+      <div><h3>Guardrails</h3><ul>
+        <li>Every career must have a Nigerian route: university, polytechnic or trade.</li>
+        <li>The AI must never say a career is not for you because of who you are.</li>
+        <li>At least one suggestion is a skilled trade or hands-on path.</li>
+        <li>No name or age is collected.</li></ul></div>
+      <div><h3>Privacy</h3><p>There is no sign-up and nothing is saved. Before anything reaches the AI, a privacy filter removes phone numbers, emails, account or ID numbers, names after "my name is", and ages.</p></div>
+      <div><h3>The secret key</h3><p>The key that lets us use the AI is paid for by an adult. It lives only on the server, never in this page and never on the screen.</p></div>
+    </div>
+    <details id="sentBox">
+      <summary>See exactly what we sent to the AI</summary>
+      <div class="env">
+        <div><h4>1. Our rules (instructions), the same for everyone</h4><pre id="sentRules">Ask for careers first.</pre></div>
+        <div><h4>2. Your answers (input), after the privacy filter</h4><pre id="sentInput">Ask for careers first.</pre></div>
+      </div>
+      <p class="small" id="sentModel"></p>
+    </details>
+  </section>
+
+  <footer>Built by students of Yewa College, Ogun State · ByteBusters National Showcase 2026 · These are ideas to explore, not decisions. Talk to a parent or teacher about them.</footer>
+</div>
+
+<datalist id="enjoyList"><option>fixing things</option><option>drawing and designing</option><option>helping people</option><option>cooking</option><option>talking to people</option><option>building things</option><option>writing stories</option><option>playing sports</option><option>organising events</option><option>caring for animals</option><option>solving puzzles</option><option>using computers</option><option>singing or playing music</option><option>selling things</option></datalist>
+<datalist id="timeList"><option>drawing</option><option>playing football</option><option>watching how things work</option><option>coding or making games</option><option>cooking</option><option>reading</option><option>making music</option><option>sewing and fashion</option><option>gardening</option><option>taking photos and videos</option><option>taking things apart</option></datalist>
+<datalist id="curiousList"><option>how the human body works</option><option>space and the stars</option><option>how phones and computers work</option><option>money and business</option><option>plants and food</option><option>cars and engines</option><option>how buildings stand up</option><option>why people behave the way they do</option><option>the law and fairness</option><option>news and films</option><option>electricity and solar power</option></datalist>
+<datalist id="naturalList"><option>good with my hands</option><option>good at maths</option><option>good at talking and convincing</option><option>patient and caring</option><option>creative</option><option>good with computers</option><option>strong and active</option><option>a good listener</option><option>leading a group</option><option>good at drawing</option><option>good at organising</option></datalist>
+<datalist id="gameList"><option>football</option><option>Ludo</option><option>Whot</option><option>Ayo (Ayò)</option><option>chess</option><option>draughts</option><option>Minecraft</option><option>FIFA / EA FC</option><option>Candy Crush</option><option>Temple Run</option><option>Snake and Ladder</option><option>ten-ten</option></datalist>
+
+<script src="rules.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
