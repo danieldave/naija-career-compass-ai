@@ -2,7 +2,9 @@
 
 **Pick what you enjoy. The AI suggests three careers with real Nigerian routes into them. No name or age needed.**
 
-Built by students of Yewa College, Ogun State, for the ByteBusters National Showcase 2026.
+Built with AI by Yewa College ByteBusters (Generative AI Team), for the ByteBusters National Showcase 2026.
+
+**New in version 2:** night mode (the sun/moon button, top right), a bigger gold, indigo and pink design, a "How it works" section, real career photos, and "The 5-part prompt formula" section.
 
 ---
 
@@ -15,8 +17,19 @@ Built by students of Yewa College, Ogun State, for the ByteBusters National Show
 | `script.js` | The waiter: reads the form, shows what we send, draws the 3 cards with pictures | Box Keeper / Decider |
 | `rules.js` | **The rule card**: our instructions to the AI, the questions, the privacy filter, the checks, demo mode | Safety Officer |
 | `api/ask.js` | The kitchen: runs on the server, keeps the secret key, talks to the OpenAI model | Safety Officer |
-| `images/careers/` | One picture for each career family (17 pictures) | Anyone |
+| `images/careers/` | Our own drawing for each career family (17). It shows if a photo cannot load | Anyone |
+| Photos | Real photos from unsplash.com (free to use). The list is `PHOTOS` at the top of `script.js` | Anyone |
 | `dev-server.js` | Runs the whole site on your own computer | Trainer |
+
+## The 5-part prompt formula (in `rules.js`)
+
+1. **Role**: who the AI should act as (a kind teacher, counsellor and parent).
+2. **Task**: what the AI must do (suggest exactly 3 careers that fit the answers).
+3. **Audience**: who will read it (young Nigerian students; simple English).
+4. **Format**: the exact shape of the answer (JSON, real Nigerian routes, one university and one trade route).
+5. **Limits**: what the AI must never do (no personal details, never discourage, no made-up schools or numbers, no salary promises).
+
+The page shows these 5 parts word for word, straight from `rules.js`.
 
 ## How it works (the logic)
 

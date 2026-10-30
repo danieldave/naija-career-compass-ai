@@ -5,34 +5,72 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Naija Career Compass AI</title>
 <meta name="description" content="Pick what you enjoy. The AI suggests three careers with real Nigerian routes into them. No name or age needed.">
+<meta name="theme-color" content="#2A1B6E">
 <link rel="icon" href="images/logo.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<!-- NIGHT MODE: remember the last choice before the page paints, so it never flashes white -->
+<script>try { var t = localStorage.getItem("cc-theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}</script>
 <!-- WHERE IS THE AI KITCHEN? Leave it as "api/ask" on Vercel.
      On GitHub Pages, put your Vercel address here, for example "https://naija-career-compass.vercel.app/api/ask". -->
 <script>window.CC_API = "api/ask";</script>
 </head>
 <body>
-<div class="page">
 
-  <!-- PART 1: the header (logo + name) -->
-  <header class="top">
-    <img class="logo" src="images/logo.svg" alt="Naija Career Compass logo: a compass">
-    <h1>NAIJA CAREER COMPASS <span>AI</span></h1>
-  </header>
+<!-- PART 1: the top bar (logo, name, night mode) -->
+<header class="bar">
+  <a class="brand" href="#top"><img src="images/logo.svg" alt="Naija Career Compass logo: a compass"><span>NAIJA CAREER COMPASS <b>AI</b></span></a>
+  <nav class="links"><a href="#how">How it works</a><a href="#formula">Prompt formula</a><a href="#start">Start</a></nav>
+  <button id="themeBtn" class="theme" type="button" aria-label="Switch night mode on or off" title="Night mode"><span class="sun">☀️</span><span class="moon">🌙</span></button>
+</header>
 
-  <!-- PART 2: the problem we solve -->
-  <p class="problem">Secondary and tertiary students often have limited awareness of the full range of career opportunities available to them, and existing career guidance is often generic or disconnected from their actual interests and strengths.</p>
+<div class="page" id="top">
 
-  <!-- PART 3: what to do -->
-  <p class="howto"><b>Pick what you enjoy.</b> The AI suggests three careers with real Nigerian routes into them, according to your interests, strengths and areas of curiosity. <b>No name or age needed.</b></p>
+  <!-- PART 2: the big welcome -->
+  <section class="hero">
+    <div class="hero-text">
+      <p class="kicker">Built with AI by Yewa College ByteBusters</p>
+      <h1>Find a career that <span class="pink">fits</span> <span class="gold">you</span>.</h1>
+      <p class="lead">Tell us what you enjoy. The AI suggests <b>3 careers</b> with <b>real Nigerian routes</b> into them: university, polytechnic or a skilled trade.</p>
+      <div class="hero-btns">
+        <a class="btn big" href="#start">Start now →</a>
+        <a class="btn line" href="#how">How it works</a>
+      </div>
+      <ul class="facts"><li>No sign-up</li><li>No name or age needed</li><li>Nothing is saved</li></ul>
+    </div>
+    <div class="collage" aria-hidden="true">
+      <img data-cat="health" alt="">
+      <img data-cat="engineering" alt="">
+      <img data-cat="computing" alt="">
+      <img data-cat="agriculture" alt="">
+    </div>
+  </section>
+
+  <!-- PART 3: the problem we solve -->
+  <section class="problem">
+    <h2>The problem</h2>
+    <p>Secondary and tertiary students often have limited awareness of the full range of career opportunities available to them, and existing career guidance is often generic or disconnected from their actual interests and strengths.</p>
+  </section>
+
+  <!-- PART 4: how it works -->
+  <section id="how" class="section">
+    <h2 class="title">How it works</h2>
+    <p class="sub">Four steps, from your answers to your 3 career cards.</p>
+    <ol class="steps">
+      <li class="s1"><span class="num">1</span><span class="ico">✍️</span><h3>You answer</h3><p>Pick your favourite subject and what you enjoy. Choose from the lists or type your own.</p></li>
+      <li class="s2"><span class="num">2</span><span class="ico">🛡️</span><h3>Our code checks</h3><p>A privacy filter removes names, ages, phone numbers and emails. Then our code checks that every answer is filled in.</p></li>
+      <li class="s3"><span class="num">3</span><span class="ico">🤖</span><h3>The AI thinks</h3><p>The AI reads our 5-part prompt plus your answers, and replies with exactly 3 careers as JSON.</p></li>
+      <li class="s4"><span class="num">4</span><span class="ico">🧭</span><h3>You get 3 cards</h3><p>Our code checks the guardrails, then shows each career with a photo, the reason, the subjects and the routes.</p></li>
+    </ol>
+  </section>
 
   <div id="demoBanner" class="banner" hidden>DEMO MODE: these are sample ideas chosen by our code, not by the AI.</div>
 
-  <main class="two">
-    <!-- PART 4: the form (the inputs) -->
+  <!-- PART 5: the form and the output -->
+  <main id="start" class="two">
     <form id="form" class="card form" novalidate>
+      <h2 class="formtitle">Tell us about you</h2>
       <label>My favourite subject
         <select id="subject" required>
           <option value="">Choose a subject</option>
@@ -84,50 +122,53 @@
         <textarea id="extra" maxlength="300" rows="3" placeholder="Anything else you want the AI to know. Please do not type your name, age or phone number."></textarea>
       </label>
       <p id="error" class="error" role="alert"></p>
-      <button id="go" type="submit">Show me 3 careers</button>
+      <button id="go" class="btn big full" type="submit">Show me 3 careers ✨</button>
       <p class="small">There is no sign-up and nothing is saved. A privacy filter removes phone numbers, emails, ID numbers, names and ages before anything reaches the AI.</p>
     </form>
 
-    <!-- PART 5: the output -->
     <section class="card output" aria-live="polite">
-      <h2>Output</h2>
+      <h2>Your 3 careers</h2>
       <div id="output">
-        <div class="empty"><img src="images/logo.svg" alt=""><p>Your 3 careers will appear here, each with a picture, the reason we chose it, the subjects to focus on and real Nigerian routes into it.</p></div>
+        <div class="empty"><img src="images/logo.svg" alt=""><p>Your 3 careers will appear here, each with a photo, the reason we chose it, the subjects to focus on and real Nigerian routes into it.</p></div>
       </div>
-      <button id="printBtn" class="ghost" type="button" hidden>Print my careers</button>
+      <button id="printBtn" class="btn line full" type="button" hidden>Print my careers</button>
     </section>
   </main>
 
-  <!-- PART 6: how it works -->
-  <section class="how card">
-    <h2>How it works</h2>
-    <div class="flow">
-      <div><b>1. You</b>answer the questions</div><span>→</span>
-      <div><b>2. Our code</b>puts your answers into lists, removes private details and checks them</div><span>→</span>
-      <div><b>3. The AI model</b>reads our rules + your answers and replies with exactly 3 careers as JSON</div><span>→</span>
-      <div><b>4. Our code</b>checks the guardrails and turns the JSON into cards with pictures</div>
-    </div>
+  <!-- PART 6: the 5-part prompt formula (filled in from rules.js, the real prompt) -->
+  <section id="formula" class="section">
+    <h2 class="title">The 5-part prompt formula</h2>
+    <p class="sub">Every time, the AI reads these 5 parts with your answers. This is our real prompt, word for word, taken from <code>rules.js</code>.</p>
+    <ol id="parts" class="parts"></ol>
+  </section>
+
+  <!-- PART 7: guardrails, privacy and the key -->
+  <section class="section">
     <div class="grid3">
-      <div><h3>Guardrails</h3><ul>
-        <li>Every career must have a Nigerian route: university, polytechnic or trade.</li>
+      <div class="card tile t1"><h3>🚧 Guardrails</h3><ul>
+        <li>Exactly 3 careers, every one with a Nigerian route.</li>
+        <li>At least one university route and one skilled trade.</li>
         <li>The AI must never say a career is not for you because of who you are.</li>
-        <li>At least one suggestion is a skilled trade or hands-on path.</li>
-        <li>No name or age is collected.</li></ul></div>
-      <div><h3>Privacy</h3><p>There is no sign-up and nothing is saved. Before anything reaches the AI, a privacy filter removes phone numbers, emails, account or ID numbers, names after "my name is", and ages.</p></div>
-      <div><h3>The secret key</h3><p>The key that lets us use the AI is paid for by an adult. It lives only on the server, never in this page and never on the screen.</p></div>
+        <li>If the AI breaks a rule, our code asks again.</li></ul></div>
+      <div class="card tile t2"><h3>🔒 Privacy</h3><p>There is no sign-up and nothing is saved. Before anything reaches the AI, a privacy filter removes phone numbers, emails, account or ID numbers, names after "my name is", and ages.</p></div>
+      <div class="card tile t3"><h3>🔑 The secret key</h3><p>The key that lets us use the AI is paid for by an adult. It lives only on the server, never in this page and never on the screen.</p></div>
     </div>
-    <details id="sentBox">
+    <details id="sentBox" class="card">
       <summary>See exactly what we sent to the AI</summary>
       <div class="env">
-        <div><h4>1. Our rules (instructions), the same for everyone</h4><pre id="sentRules">Ask for careers first.</pre></div>
-        <div><h4>2. Your answers (input), after the privacy filter</h4><pre id="sentInput">Ask for careers first.</pre></div>
+        <div><h4>1. Our 5-part prompt, the same for everyone</h4><pre id="sentRules">Ask for careers first.</pre></div>
+        <div><h4>2. Your answers, after the privacy filter</h4><pre id="sentInput">Ask for careers first.</pre></div>
       </div>
       <p class="small" id="sentModel"></p>
     </details>
   </section>
-
-  <footer>Built by students of Yewa College, Ogun State · ByteBusters National Showcase 2026 · These are ideas to explore, not decisions. Talk to a parent or teacher about them.</footer>
 </div>
+
+<footer>
+  <p class="made">Built with AI by Yewa College ByteBusters (Generative AI Team)</p>
+  <p>ByteBusters National Showcase 2026 · These are ideas to explore, not decisions. Talk to a parent or teacher about them.</p>
+  <p class="credit">Career photos from <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a> (free to use).</p>
+</footer>
 
 <datalist id="enjoyList"><option>fixing things</option><option>drawing and designing</option><option>helping people</option><option>cooking</option><option>talking to people</option><option>building things</option><option>writing stories</option><option>playing sports</option><option>organising events</option><option>caring for animals</option><option>solving puzzles</option><option>using computers</option><option>singing or playing music</option><option>selling things</option></datalist>
 <datalist id="timeList"><option>drawing</option><option>playing football</option><option>watching how things work</option><option>coding or making games</option><option>cooking</option><option>reading</option><option>making music</option><option>sewing and fashion</option><option>gardening</option><option>taking photos and videos</option><option>taking things apart</option></datalist>
