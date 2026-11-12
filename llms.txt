@@ -1,0 +1,19 @@
+# Naija Career Compass AI
+
+> A free, private career guide for Nigerian secondary school students, built by Yewa College ByteBusters (Generative AI Team). Students answer 9 questions about what they enjoy and the AI suggests 3 careers, each with subjects to focus on and real Nigerian routes.
+
+## What it does
+- Suggests exactly 3 careers. Every set includes at least one university route (JAMB/UTME) and one skilled trade (NABTEB, NSQ or apprenticeship); polytechnic (ND/HND) and college of education (NCE) routes are also used.
+- Writes the results in 17 Nigerian languages: English, Hausa, Yoruba, Igbo, Pidgin, Fulfulde, Kanuri, Tiv, Ibibio, Efik, Izon, Edo, Nupe, Urhobo, Igala, Idoma and Ebira. Career titles and exam names stay in English.
+- "Talk to my parents": writes a short, respectful message in the parents' language about one career, with answers to common parental worries, ready to copy or send on WhatsApp.
+- Skilled-trade careers link to their training page on Apprentice Pathways Explorer (https://apprentice-pathway-explorer.vercel.app/).
+- No sign-up and nothing is saved. A privacy filter removes names, ages, phone numbers, emails and ID numbers before anything reaches the AI.
+- Guardrails: never promises a salary or job, and never says a career is not for someone because of who they are.
+
+## Pages
+- [Home and career tool](https://naija-career-compass-ai.vercel.app/)
+
+## Related ByteBusters tools
+- [Apprentice Pathways Explorer](https://apprentice-pathway-explorer.vercel.app/): Nigerian trades, training routes and apprenticeship tools
+- [Inflation Explainer](https://inflation-explainer.vercel.app/)
+- [Community Voice AI](https://community-voice-ai-ziry.vercel.app/)

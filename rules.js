@@ -176,6 +176,30 @@
       subjects: b.subjects, routes: b.routes, startNow: b.startNow })) };
   }
 
-  const Rules = { INSTRUCTIONS, PROMPT_PARTS, SCHEMA, CATEGORIES, QUESTIONS, clean, validate, buildInput, check, demo };
+  // ---------------------------------------------------------------
+  // 8. "TALK TO MY PARENTS" (version 3): a respectful message from the
+  //    student to their parents about ONE career, in the parents' language.
+  // ---------------------------------------------------------------
+  const PARENT_INSTRUCTIONS =
+    "ROLE: You help a young Nigerian student talk to their parents or guardians about a career they are interested in. Act like a wise family friend who respects parents.\n" +
+    "TASK: Write a short message the student can say or send to their parents about the CAREER given, in the PARENTS' LANGUAGE.\n" +
+    "AUDIENCE: Nigerian parents who care deeply about their child's future and may worry about respect, stability and cost.\n" +
+    "FORMAT: 'message' is 80 to 140 words, warm and respectful, written as the student speaking (I, me). It says what the career is, why it fits the student (use the 'why' given), " +
+    "the real Nigerian route (use only the routes and subjects given), and asks for the parents' advice and support. 'points' is 2 to 4 short talking points that answer a worry parents often have " +
+    "(for example: Is it respectable? How do I start? What will it cost? Can I still go to school?), in the same language.\n" +
+    "LIMITS: Never promise a salary, a job or riches. Never criticise parents or other careers. Never invent schools, numbers or programmes. Never include names, ages or phone numbers. " +
+    "Keep exam and certificate names unchanged (WAEC, NECO, JAMB/UTME, ND, HND, NCE, NABTEB, NSQ). Reply with only the JSON.";
+  const PARENT_SCHEMA = {
+    type: "object",
+    properties: { message: { type: "string" }, points: { type: "array", items: { type: "string" } } },
+    required: ["message", "points"], additionalProperties: false
+  };
+  function parentDemo(c) {
+    return { message: "Sample message (demo mode, written by our code, not the AI): Mummy and Daddy, I have been thinking about becoming a " + c.title +
+      ". " + (c.why || "") + " The route is: " + (c.routes || []).join("; ") + ". I would love your advice and support to take the first step.",
+      points: ["I will keep working hard in school, especially " + ((c.subjects || []).slice(0, 2).join(" and ") || "my key subjects") + ".", "I can start small this week and show you what I learn."] };
+  }
+
+  const Rules = { INSTRUCTIONS, PROMPT_PARTS, SCHEMA, CATEGORIES, QUESTIONS, clean, validate, buildInput, check, demo, PARENT_INSTRUCTIONS, PARENT_SCHEMA, parentDemo };
   if (typeof module !== "undefined" && module.exports) module.exports = Rules; else root.Rules = Rules;
 })(this);

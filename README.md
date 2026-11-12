@@ -6,6 +6,14 @@ Built with AI by Yewa College ByteBusters (Generative AI Team), for the ByteBust
 
 **New in version 2:** night mode (the sun/moon button, top right), a bigger gold, indigo and pink design, a "How it works" section, real career photos, and "The 5-part prompt formula" section.
 
+**New in version 3:**
+- **17 Nigerian languages.** "Write my careers in" gives the careers in English, Hausa, Yoruba, Igbo, Pidgin, Fulfulde, Kanuri, Tiv, Ibibio, Efik, Izon, Edo, Nupe, Urhobo, Igala, Idoma or Ebira. Career titles and exam names stay in English.
+- **💬 Talk to my parents.** Every career card writes a short, respectful message in the parents' language, with answers to common worries. Copy it or send it on WhatsApp.
+- **Training links.** Skilled-trade and polytechnic careers link to their page on Apprentice Pathways Explorer (`ape-links.js`).
+- **Safer, cheaper kitchen.** Only our own websites may use `api/ask.js` (the guest list), the same answers twice are saved and cost nothing, and a 30-second timer stops a slow AI from freezing the page.
+- **SEO, AEO and GEO.** A clear title and description, a share picture (`images/og-image.png`), JSON-LD (WebApplication and FAQPage), a visible FAQ, `robots.txt` that welcomes AI answer engines, `sitemap.xml` and `llms.txt`.
+- **Tests.** `node tools/test.js` runs 14 checks with a pretend AI, so no key or money is needed.
+
 ---
 
 ## What the files do
@@ -19,6 +27,9 @@ Built with AI by Yewa College ByteBusters (Generative AI Team), for the ByteBust
 | `api/ask.js` | The kitchen: runs on the server, keeps the secret key, talks to the OpenAI model | Safety Officer |
 | `images/careers/` | Our own drawing for each career family (17). It shows if a photo cannot load | Anyone |
 | Photos | Real photos from unsplash.com (free to use). The list is `PHOTOS` at the top of `script.js` | Anyone |
+| `ape-links.js` | Matches a career title to its Apprentice Pathways training page | Decider |
+| `robots.txt`, `sitemap.xml`, `llms.txt` | Tell search engines and AI answer engines what our site is about | Messenger |
+| `tools/test.js` | 14 checks with a pretend AI: `node tools/test.js` | Trainer |
 | `dev-server.js` | Runs the whole site on your own computer | Trainer |
 
 ## The 5-part prompt formula (in `rules.js`)

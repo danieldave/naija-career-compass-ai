@@ -3,8 +3,26 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Naija Career Compass AI</title>
-<meta name="description" content="Pick what you enjoy. The AI suggests three careers with real Nigerian routes into them. No name or age needed.">
+<title>Naija Career Compass AI: Free Career Ideas for Nigerian Students</title>
+<meta name="description" content="Free career guide for Nigerian students. Pick what you enjoy and get 3 careers with real routes (WAEC, JAMB, ND/HND, NABTEB, trades) in 17 Nigerian languages.">
+<link rel="canonical" href="https://naija-career-compass-ai.vercel.app/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Naija Career Compass AI">
+<meta property="og:title" content="Naija Career Compass AI: 3 careers that fit you">
+<meta property="og:description" content="Answer 9 fun questions. Get 3 careers with real Nigerian routes, in your language, plus a message to share with your parents.">
+<meta property="og:url" content="https://naija-career-compass-ai.vercel.app/">
+<meta property="og:image" content="https://naija-career-compass-ai.vercel.app/images/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"WebApplication","name":"Naija Career Compass AI","url":"https://naija-career-compass-ai.vercel.app/","applicationCategory":"EducationalApplication","operatingSystem":"Any (web browser)","inLanguage":["en","ha","yo","ig","pcm"],"isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"NGN"},"audience":{"@type":"EducationalAudience","educationalRole":"student","geographicArea":"Nigeria"},"description":"Students pick what they enjoy and the AI suggests 3 careers, each with a real Nigerian route: university (JAMB/UTME), polytechnic or college (ND/HND, NCE) or a skilled trade (NABTEB, apprenticeship).","creator":{"@type":"Organization","name":"Yewa College ByteBusters (Generative AI Team)"}},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"How do I choose a career in Nigeria as a secondary school student?","acceptedAnswer":{"@type":"Answer","text":"Start with what you enjoy, what you are naturally good at and where you like to work. Naija Career Compass AI turns those answers into 3 careers, each with the subjects to focus on and a real Nigerian route: university through JAMB/UTME, polytechnic (ND/HND) or college of education (NCE), or a skilled trade through NABTEB or an apprenticeship."}},
+{"@type":"Question","name":"Is Naija Career Compass AI free and private?","acceptedAnswer":{"@type":"Answer","text":"Yes. There is no sign-up and nothing is saved. A privacy filter removes names, ages, phone numbers, emails and ID numbers before anything reaches the AI."}},
+{"@type":"Question","name":"Can I get my career ideas in Hausa, Yoruba, Igbo or Pidgin?","acceptedAnswer":{"@type":"Answer","text":"Yes. Choose from 17 Nigerian languages, including Hausa, Yoruba, Igbo, Pidgin, Fulfulde, Kanuri, Tiv, Ibibio, Efik, Izon, Edo, Nupe, Urhobo, Igala, Idoma and Ebira. Career titles and exam names stay in English."}},
+{"@type":"Question","name":"How do I talk to my parents about a career?","acceptedAnswer":{"@type":"Answer","text":"Press 'Talk to my parents' on any career card. The AI writes a short, respectful message in your parents' language that explains the career, the route into it and asks for their advice, plus answers to common worries. You can copy it or send it on WhatsApp."}},
+{"@type":"Question","name":"Are skilled trades a good career in Nigeria?","acceptedAnswer":{"@type":"Answer","text":"Yes. Trades such as electrical installation, solar, welding, tailoring and catering are in steady demand. Every result includes at least one skilled trade, and trade cards link to Apprentice Pathways Explorer for the full training path."}}]}]}
+</script>
 <meta name="theme-color" content="#2A1B6E">
 <link rel="icon" href="images/logo.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -121,6 +139,9 @@
       <label>Anything else (optional)
         <textarea id="extra" maxlength="300" rows="3" placeholder="Anything else you want the AI to know. Please do not type your name, age or phone number."></textarea>
       </label>
+      <label>Write my careers in
+        <select id="lang"><option value="en">English</option><option value="ha">Hausa</option><option value="yo">Yoruba</option><option value="ig">Igbo</option><option value="pcm">Pidgin</option><option value="ff">Fulfulde (AI, beta)</option><option value="kr">Kanuri (AI, beta)</option><option value="tiv">Tiv (AI, beta)</option><option value="ibb">Ibibio (AI, beta)</option><option value="efi">Efik (AI, beta)</option><option value="ijc">Izon (Ijaw) (AI, beta)</option><option value="bin">Edo (Bini) (AI, beta)</option><option value="nup">Nupe (AI, beta)</option><option value="urh">Urhobo (AI, beta)</option><option value="igl">Igala (AI, beta)</option><option value="idu">Idoma (AI, beta)</option><option value="igb">Ebira (AI, beta)</option></select>
+      </label>
       <p id="error" class="error" role="alert"></p>
       <button id="go" class="btn big full" type="submit">Show me 3 careers ✨</button>
       <p class="small">There is no sign-up and nothing is saved. A privacy filter removes phone numbers, emails, ID numbers, names and ages before anything reaches the AI.</p>
@@ -162,6 +183,17 @@
       <p class="small" id="sentModel"></p>
     </details>
   </section>
+  <!-- PART 8: questions people ask (also read by search engines and AI answer engines) -->
+  <section id="faq" class="section">
+    <h2 class="title">Questions students and parents ask</h2>
+    <div class="faq">
+      <details class="card"><summary>How do I choose a career in Nigeria as a secondary school student?</summary><p>Start with what you enjoy, what you are naturally good at and where you like to work. We turn those answers into 3 careers, each with the subjects to focus on and a real Nigerian route: university through JAMB/UTME, polytechnic (ND/HND) or college of education (NCE), or a skilled trade through NABTEB or an apprenticeship.</p></details>
+      <details class="card"><summary>Is it free and private?</summary><p>Yes. There is no sign-up and nothing is saved. A privacy filter removes names, ages, phone numbers, emails and ID numbers before anything reaches the AI.</p></details>
+      <details class="card"><summary>Can I get my career ideas in Hausa, Yoruba, Igbo or Pidgin?</summary><p>Yes. Choose from 17 Nigerian languages in "Write my careers in". Career titles and exam names (WAEC, JAMB, NABTEB) stay in English so you can search for them.</p></details>
+      <details class="card"><summary>How do I talk to my parents about a career?</summary><p>Press "💬 Talk to my parents" on any career card. The AI writes a short, respectful message in your parents' language, with answers to the worries parents often have. Copy it, read it aloud, or send it on WhatsApp.</p></details>
+      <details class="card"><summary>Are skilled trades a good career in Nigeria?</summary><p>Yes. Trades such as electrical installation, solar, welding, tailoring and catering are in steady demand. Every result includes at least one skilled trade, and trade cards link to <a href="https://apprentice-pathway-explorer.vercel.app/" target="_blank" rel="noopener">Apprentice Pathways Explorer</a> for the full training path.</p></details>
+    </div>
+  </section>
 </div>
 
 <footer>
@@ -177,6 +209,7 @@
 <datalist id="gameList"><option>football</option><option>Ludo</option><option>Whot</option><option>Ayo (Ayò)</option><option>chess</option><option>draughts</option><option>Minecraft</option><option>FIFA / EA FC</option><option>Candy Crush</option><option>Temple Run</option><option>Snake and Ladder</option><option>ten-ten</option></datalist>
 
 <script src="rules.js"></script>
+<script src="ape-links.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

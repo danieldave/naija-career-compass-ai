@@ -107,9 +107,9 @@ code { background: var(--bg2); padding: 1px 6px; border-radius: 6px; }
 .formtitle, .output h2 { font-size: 26px; font-weight: 900; margin-bottom: 14px; color: var(--indigo); }
 .form { border-top: 8px solid var(--gold); }
 .form label { display: block; font-weight: 700; font-size: 15.5px; margin-bottom: 13px; }
-.form input, .form select, .form textarea { display: block; width: 100%; margin-top: 6px; font: inherit; font-weight: 400; padding: 12px 14px;
+.form input, .form select, .form textarea, .parents select { display: block; width: 100%; margin-top: 6px; font: inherit; font-weight: 400; padding: 12px 14px;
   border: 2px solid var(--fieldline); border-radius: 12px; background: var(--field); color: var(--ink); }
-.form input:focus, .form select:focus, .form textarea:focus { outline: 3px solid var(--pink2); border-color: var(--pink); }
+.form input:focus, .form select:focus, .form textarea:focus, .parents select:focus { outline: 3px solid var(--pink2); border-color: var(--pink); }
 .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; align-items: end; }
 .error { color: var(--red); font-weight: 800; min-height: 1.2em; margin: 4px 0 10px; }
 .small { font-size: 14px; color: var(--muted); margin: 12px 0 0; }
@@ -195,3 +195,16 @@ footer a { color: var(--pink2); }
   .two { display: block; margin: 0; } .output { border: 0; position: static; box-shadow: none; }
   .career { break-inside: avoid; }
 }
+
+/* ===== VERSION 3: training link, "Talk to my parents", FAQ ===== */
+.career .ape { display: block; margin: .6rem 0; font-weight: 700; color: var(--pink, #E8338B); text-decoration: none; overflow-wrap: anywhere; }
+.career .ape:hover { text-decoration: underline; }
+.career .parentsBtn { margin-top: .6rem; }
+.parents { margin-top: .7rem; padding: .8rem; border-radius: 14px; border: 2px dashed rgba(122,31,134,.35); display: grid; gap: .6rem; }
+.parents label { display: grid; gap: .3rem; font-weight: 600; }
+.pMsg { white-space: pre-wrap; line-height: 1.55; margin: .3rem 0; }
+.pPts { margin: .2rem 0 .5rem 1.1rem; }
+.pAct { display: flex; gap: .5rem; flex-wrap: wrap; }
+.faq { display: grid; gap: .7rem; max-width: 860px; margin: 0 auto; }
+.faq details summary { cursor: pointer; font-weight: 700; }
+.faq details p { margin: .6rem 0 0; line-height: 1.6; }

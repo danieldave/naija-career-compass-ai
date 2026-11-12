@@ -80,7 +80,16 @@ function showSent(sent) {
 
 // PART 4: turn the JSON into career cards with pictures
 
+// VERSION 3: trade and polytechnic careers link to their training page on Apprentice Pathways
+function apeLink(c) {
+  if (c.routeType === "University" || !window.ApeLinks) return "";
+  const t = ApeLinks.find(c.title);
+  return t ? '<a class="ape" href="' + t.url + '" target="_blank" rel="noopener">🛠️ See the full training path for ' + esc(t.title) + ' on Apprentice Pathways →</a>' : "";
+}
+
+let lastResult = null;
 function drawCards(result) {
+  lastResult = result;
   output.innerHTML = "";
   result.careers.forEach((c, i) => {
     const pic = Rules.CATEGORIES.includes(c.category) ? c.category : "science";
@@ -95,6 +104,9 @@ function drawCards(result) {
       '<p class="label">Subjects to focus on</p><div class="chips">' + c.subjects.map(s => '<span>' + esc(s) + '</span>').join("") + '</div>' +
       '<p class="label">Nigerian routes into it</p><ol class="routes">' + c.routes.map(r => '<li>' + esc(r) + '</li>').join("") + '</ol>' +
       '<p class="start"><b>Try this week:</b> ' + esc(c.startNow) + '</p>' +
+      apeLink(c) +
+      '<button class="btn line parentsBtn" type="button" data-i="' + i + '">💬 Talk to my parents</button>' +
+      '<div class="parents" hidden></div>' +
       '</div>';
     output.appendChild(card);
   });
@@ -118,7 +130,7 @@ form.addEventListener("submit", async (event) => {
   let data = null;
   try {
     const r = await fetch(window.CC_API, {
-      method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ answers: answers })
+      method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ answers: answers, lang: document.getElementById("lang").value })
     });
     if (r.status === 404 || r.status === 405) throw new Error("no server");          // e.g. GitHub Pages: no kitchen here
     data = await r.json();
@@ -137,3 +149,44 @@ form.addEventListener("submit", async (event) => {
 });
 
 printBtn.addEventListener("click", () => window.print());
+
+// VERSION 3: "Talk to my parents" - a respectful message in the parents' language
+const LANG_OPTIONS = document.getElementById("lang").innerHTML;
+output.addEventListener("click", async (e) => {
+  const open = e.target.closest(".parentsBtn");
+  if (open) {
+    const box = open.nextElementSibling;
+    box.hidden = !box.hidden;
+    if (!box.innerHTML) {
+      box.innerHTML = '<label>My parents speak <select class="pLang">' + LANG_OPTIONS + '</select></label>' +
+        '<button class="btn pGo" type="button" data-i="' + open.dataset.i + '">Write the message</button><div class="pOut" aria-live="polite"></div>';
+      box.querySelector(".pLang").value = document.getElementById("lang").value;
+    }
+    return;
+  }
+  const go = e.target.closest(".pGo");
+  if (go) {
+    const box = go.parentElement, out = box.querySelector(".pOut");
+    const career = lastResult.careers[+go.dataset.i];
+    go.disabled = true; go.textContent = "Writing...";
+    let data;
+    try {
+      const r = await fetch(window.CC_API, { method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ mode: "parents", lang: box.querySelector(".pLang").value, career }) });
+      if (r.status === 404 || r.status === 405) throw new Error("no server");
+      data = await r.json();
+      if (!r.ok) { out.innerHTML = '<p class="error">' + esc(data.error || "Something went wrong.") + '</p>'; return; }
+    } catch (err) {
+      data = { demo: true, result: Rules.parentDemo(career) };
+    } finally { go.disabled = false; go.textContent = "Write the message again"; }
+    const m = data.result;
+    const text = m.message + "\n\n" + m.points.map(p => "• " + p).join("\n");
+    out.innerHTML = (data.demo ? '<p class="small">Demo mode: a sample written by our code.</p>' : "") +
+      '<p class="pMsg">' + esc(m.message) + '</p><ul class="pPts">' + m.points.map(p => '<li>' + esc(p) + '</li>').join("") + '</ul>' +
+      '<div class="pAct"><button class="btn line pCopy" type="button">Copy</button>' +
+      '<a class="btn" target="_blank" rel="noopener" href="https://wa.me/?text=' + encodeURIComponent(text) + '">Send on WhatsApp</a></div>';
+    out.querySelector(".pCopy").onclick = (ev) => {
+      (navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject()).then(() => ev.target.textContent = "Copied ✓", () => ev.target.textContent = "Select and copy the text");
+    };
+  }
+});
