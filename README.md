@@ -14,6 +14,8 @@ Built with AI by Yewa College ByteBusters (Generative AI Team), for the ByteBust
 - **SEO, AEO and GEO.** A clear title and description, a share picture (`images/og-image.png`), JSON-LD (WebApplication and FAQPage), a visible FAQ, `robots.txt` that welcomes AI answer engines, `sitemap.xml` and `llms.txt`.
 - **Tests.** `node tools/test.js` runs 14 checks with a pretend AI, so no key or money is needed.
 
+**New in version 4: the Career Library.** `tools/careers.js` holds 68 careers. `node tools/build.js` turns them into real pages ("How to become a ___ in Nigeria"), route pages, subject pages and the **"What can I become with my subjects?"** finder at `/subjects/`. To add a career: add one entry, run the build, then `node tools/test.js`. Search Console codes go in `tools/site.json`.
+
 ---
 
 ## What the files do

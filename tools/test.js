@@ -77,5 +77,23 @@ function run(body, headers = {}) {
     assert(p("robots.txt").includes("Disallow: /api/")); assert(p("sitemap.xml").includes("<loc>")); assert(p("llms.txt").startsWith("# Naija Career Compass AI"));
     assert(fs.existsSync(require("path").join(__dirname, "../images/og-image.png")));
   });
+  await ok("career library: every career has a page, a route and a real answer", () => {
+    const fs = require("fs"), path = require("path"), { CAREERS } = require("./careers.js");
+    assert(CAREERS.length >= 60); assert.strictEqual(new Set(CAREERS.map(c => c[0])).size, CAREERS.length);
+    CAREERS.forEach(c => {
+      assert(["uni", "poly", "trade"].includes(c[3]), c[0]); assert(c[7].length >= 3, c[0] + " needs a route");
+      assert(Rules.CATEGORIES.includes(c[2]), c[0] + " picture"); assert(!/₦|salary|per month/i.test(c.join(" ")), c[0] + " must not promise pay");
+      const h = fs.readFileSync(path.join(__dirname, "../careers", c[0], "index.html"), "utf8");
+      assert(h.includes("Quick answer") && h.includes('"FAQPage"') && (h.match(/rel="canonical"/g) || []).length === 1 && (h.match(/<h1/g) || []).length === 1, c[0]);
+    });
+  });
+  await ok("career library: the sitemap lists every page and trades link to real training pages", () => {
+    const fs = require("fs"), path = require("path"), { CAREERS } = require("./careers.js");
+    const sm = fs.readFileSync(path.join(__dirname, "../sitemap.xml"), "utf8");
+    CAREERS.forEach(c => assert(sm.includes("/careers/" + c[0] + "/"), c[0]));
+    assert(sm.includes("/subjects/biology/"));
+    CAREERS.filter(c => c[3] === "trade" && c[11]).forEach(c => assert(c[11] === "shoe" || Links.find(c[11]), c[0] + " has no training page"));
+    assert(!CAREERS.some(c => c[3] === "uni" && c[11] && c[0] !== "software-developer"));
+  });
   console.log(passed + " checks passed");
 })();

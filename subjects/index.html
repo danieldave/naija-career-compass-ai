@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en-NG">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What can I become with my subjects? Subject-to-career finder</title>
+<meta name="description" content="Tick the subjects you are taking and see which careers they open in Nigeria, with the usual UTME (JAMB) subject combination for each.">
+<link rel="canonical" href="https://naija-career-compass-ai.vercel.app/subjects/">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Naija Career Compass AI">
+<meta property="og:title" content="What can I become with my subjects? Subject-to-career finder">
+<meta property="og:description" content="Tick the subjects you are taking and see which careers they open in Nigeria, with the usual UTME (JAMB) subject combination for each.">
+<meta property="og:url" content="https://naija-career-compass-ai.vercel.app/subjects/">
+<meta property="og:image" content="https://naija-career-compass-ai.vercel.app/images/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2A1B6E">
+<link rel="icon" href="/images/logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<script>try { var t = localStorage.getItem("cc-theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"EducationalOrganization","@id":"https://naija-career-compass-ai.vercel.app/#org","name":"Yewa College ByteBusters (Generative AI Team)","url":"https://naija-career-compass-ai.vercel.app/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://naija-career-compass-ai.vercel.app/"},{"@type":"ListItem","position":2,"name":"My subjects","item":"https://naija-career-compass-ai.vercel.app/subjects/"}]},{"@type":"WebApplication","name":"Subject-to-career finder","applicationCategory":"EducationalApplication","operatingSystem":"Any (web browser)","url":"https://naija-career-compass-ai.vercel.app/subjects/","offers":{"@type":"Offer","price":"0","priceCurrency":"NGN"}}]}</script>
+</head>
+<body>
+<header class="bar"><a class="brand" href="/"><img src="/images/logo.svg" alt="" width="46" height="46"><span>NAIJA CAREER COMPASS <b>AI</b></span></a></header>
+<nav class="gnav" aria-label="Main"><a href="/careers/">All careers</a><a href="/subjects/">My subjects</a><a href="/careers/university/">University</a><a href="/careers/polytechnic-and-college/">Polytechnic</a><a href="/careers/skilled-trades/">Trades</a><a href="/#start">Ask the AI</a></nav>
+<main class="guide">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> › My subjects</nav>
+  <h1>What can I become with my subjects?</h1>
+
+  <p class="answer-box"><b>How it works:</b> tick the subjects you take. We show the careers whose usual UTME subjects you already have. English is counted for everyone.</p>
+  <div class="picker" id="picker"><label><input type="checkbox" value="Mathematics"> Mathematics</label><label><input type="checkbox" value="Physics"> Physics</label><label><input type="checkbox" value="Chemistry"> Chemistry</label><label><input type="checkbox" value="Biology"> Biology</label><label><input type="checkbox" value="Economics"> Economics</label><label><input type="checkbox" value="Literature in English"> Literature in English</label><label><input type="checkbox" value="Government"> Government</label><label><input type="checkbox" value="Geography"> Geography</label><label><input type="checkbox" value="Agricultural Science"> Agricultural Science</label><label><input type="checkbox" value="Fine Art"> Fine Art</label></div>
+  <p id="found" class="found" aria-live="polite">Tick at least two subjects.</p>
+  <ul class="clist" id="results"></ul>
+  <h2>Or pick one subject</h2>
+  <p class="chiplinks"><a href="/subjects/mathematics/">Mathematics</a><a href="/subjects/physics/">Physics</a><a href="/subjects/chemistry/">Chemistry</a><a href="/subjects/biology/">Biology</a><a href="/subjects/economics/">Economics</a><a href="/subjects/literature-in-english/">Literature in English</a><a href="/subjects/government/">Government</a><a href="/subjects/geography/">Geography</a><a href="/subjects/agricultural-science/">Agricultural Science</a><a href="/subjects/fine-art/">Fine Art</a></p>
+  <div class="cta"><a class="btn" href="/#start">Not sure? Answer 9 questions and get 3 careers ✨</a><a class="btn line" href="/subjects/">What can I become with my subjects?</a></div>
+  <script>
+  var DATA = [{"s":"medical-doctor","t":"Medical Doctor","u":["Physics","Chemistry","Biology"]},{"s":"pharmacist","t":"Pharmacist","u":["Physics","Chemistry","Biology"]},{"s":"nurse","t":"Nurse","u":["Physics","Chemistry","Biology"]},{"s":"medical-laboratory-scientist","t":"Medical Laboratory Scientist","u":["Physics","Chemistry","Biology"]},{"s":"physiotherapist","t":"Physiotherapist","u":["Physics","Chemistry","Biology"]},{"s":"dentist","t":"Dentist","u":["Physics","Chemistry","Biology"]},{"s":"optometrist","t":"Optometrist","u":["Physics","Chemistry","Biology"]},{"s":"radiographer","t":"Radiographer","u":["Physics","Chemistry","Biology"]},{"s":"veterinary-doctor","t":"Veterinary Doctor","u":["Physics","Chemistry","Biology"]},{"s":"nutritionist-dietitian","t":"Nutritionist or Dietitian","u":["Chemistry","Biology","Mathematics or Physics"]},{"s":"lawyer","t":"Lawyer","u":["Literature in English","Government or History","One other Arts or Social Science subject"]},{"s":"accountant","t":"Accountant","u":["Mathematics","Economics","One other Social Science subject"]},{"s":"economist","t":"Economist","u":["Mathematics","Economics","Government, Geography or another Social Science subject"]},{"s":"banker","t":"Banker","u":["Mathematics","Economics","One other Social Science subject"]},{"s":"teacher","t":"Teacher","u":["Two subjects you want to teach","One other relevant subject"]},{"s":"psychologist","t":"Psychologist or Counsellor","u":["Any three subjects (Biology helps)"]},{"s":"social-worker","t":"Social Worker","u":["Any three Arts or Social Science subjects"]},{"s":"journalist","t":"Journalist or Broadcaster","u":["Literature in English","Government or Economics","One other Arts or Social Science subject"]},{"s":"civil-engineer","t":"Civil Engineer","u":["Mathematics","Physics","Chemistry"]},{"s":"mechanical-engineer","t":"Mechanical Engineer","u":["Mathematics","Physics","Chemistry"]},{"s":"electrical-engineer","t":"Electrical and Electronics Engineer","u":["Mathematics","Physics","Chemistry"]},{"s":"chemical-engineer","t":"Chemical Engineer","u":["Mathematics","Physics","Chemistry"]},{"s":"petroleum-engineer","t":"Petroleum and Gas Engineer","u":["Mathematics","Physics","Chemistry"]},{"s":"architect","t":"Architect","u":["Mathematics","Physics","Chemistry, Geography or Fine Art"]},{"s":"quantity-surveyor","t":"Quantity Surveyor","u":["Mathematics","Physics","Economics, Geography or Chemistry"]},{"s":"estate-surveyor","t":"Estate Surveyor and Valuer","u":["Mathematics","Economics","One other subject"]},{"s":"land-surveyor","t":"Land Surveyor (Surveying and Geoinformatics)","u":["Mathematics","Physics","Geography or Chemistry"]},{"s":"building-technologist","t":"Building Technologist (Builder)","u":["Mathematics","Physics","Chemistry"]},{"s":"software-developer","t":"Software Developer","u":["Mathematics","Physics","One other Science subject"]},{"s":"data-analyst","t":"Data Analyst","u":["Mathematics","Two of Physics, Chemistry and Economics"]},{"s":"cybersecurity-analyst","t":"Cybersecurity Analyst","u":["Mathematics","Physics","One other Science subject"]},{"s":"computer-hardware-engineer","t":"Computer Engineering Technologist","u":["Mathematics","Physics","Chemistry"]},{"s":"agronomist","t":"Agricultural Scientist","u":["Chemistry","Biology or Agricultural Science","Mathematics or Physics"]},{"s":"food-scientist","t":"Food Scientist","u":["Chemistry","Mathematics or Physics","Biology or Agricultural Science"]},{"s":"microbiologist","t":"Microbiologist","u":["Biology","Chemistry","Physics or Mathematics"]},{"s":"biochemist","t":"Biochemist","u":["Biology","Chemistry","Physics or Mathematics"]},{"s":"geologist","t":"Geologist","u":["Two of Physics, Chemistry and Mathematics","Biology or Geography"]},{"s":"statistician","t":"Statistician","u":["Mathematics","Two of Physics, Chemistry and Economics"]},{"s":"science-laboratory-technologist","t":"Science Laboratory Technologist","u":["Physics","Chemistry","Biology"]},{"s":"marine-engineer","t":"Seafarer or Marine Engineer","u":["Mathematics","Physics","Chemistry"]}];
+  var box = document.getElementById("picker"), out = document.getElementById("results"), found = document.getElementById("found");
+  box.onchange = function () {
+    var have = [].slice.call(box.querySelectorAll("input:checked")).map(function (i) { return i.value; });
+    // A requirement like "Mathematics or Physics" is met if you take ANY subject named in it
+    var ok = function (need) { return /^(Any|One other|Two subjects)/.test(need) || have.some(function (h) { return need.indexOf(h) > -1; }); };
+    var hits = have.length < 2 ? [] : DATA.filter(function (c) { return c.u.every(ok) && c.u.some(function (n) { return have.some(function (h) { return n.indexOf(h) > -1; }); }); });
+    found.textContent = have.length < 2 ? "Tick at least two subjects." : hits.length + " career" + (hits.length === 1 ? "" : "s") + " match your subjects. Skilled trades are open to everyone.";
+    out.innerHTML = hits.map(function (c) { return '<li><a href="/careers/' + c.s + '/"><span><b>' + c.t + '</b><small>UTME: English, ' + c.u.join(", ") + '</small></span></a></li>'; }).join("");
+  };
+  </script>
+  <p class="updated">Written by Yewa College ByteBusters (Generative AI Team). Last updated <time datetime="2026-11-13">2026-11-13</time>. Subject and admission rules can change: always confirm in the current JAMB brochure and on the school's own website. These are ideas to explore, not decisions; talk to a parent or teacher.</p>
+</main>
+<footer>
+  <p class="made">Built with AI by Yewa College ByteBusters (Generative AI Team)</p>
+  <p><a href="/careers/">All careers</a> · <a href="/subjects/">What can I become with my subjects?</a> · <a href="/">Get 3 careers that fit you</a> · <a href="https://apprentice-pathway-explorer.vercel.app/">Apprentice Pathways Explorer</a></p>
+</footer>
+</body>
+</html>
