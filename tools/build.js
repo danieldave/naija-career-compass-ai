@@ -193,10 +193,71 @@ write('subjects/index.html', page({
 }));
 pages.push({ loc: '/subjects/', pri: '0.9' });
 
+
+// ---------- /class/ : Class Mode for teachers ----------
+const EXAMPLES = {};
+C.forEach(c => { (EXAMPLES[c.pic] = EXAMPLES[c.pic] || []).push([c.slug, c.title]); });
+Object.keys(EXAMPLES).forEach(k => { EXAMPLES[k] = EXAMPLES[k].slice(0, 4); });
+write('class/index.html', page({
+  rel: 'class/index.html', title: 'Class Mode: see what careers your students are drawn to | Naija Career Compass',
+  description: 'A free tool for Nigerian teachers and career masters. Make a class code, let students use Naija Career Compass, and see anonymous totals of the career families, routes and subjects your class is drawn to.',
+  h1: 'Class Mode for teachers and career masters', crumbs: [['Home', '/'], ['Class Mode', '/class/']],
+  body: `
+  <p class="answer-box"><b>How it works:</b> make a class code (free, no sign-up). Write it on the board. Students type it in the Career Compass form. You see <b>anonymous totals only</b>: career families, routes and favourite subjects. No names. No answers. Nothing shows until 5 students have joined.</p>
+  <div id="cm"><p>Loading…</p></div>
+  <h2>Ideas for a career lesson</h2>
+  <ol><li>Ask each student to pick their favourite subject and use Career Compass on a phone (pairs can share).</li><li>Show the class totals. Ask: <i>which family surprised you?</i></li><li>Pick the top three families. Open the example career pages below and read "how to get in" together.</li><li>Talk about trades as well as university. Both are real routes.</li></ol>
+  <p class="note">Your class code works for ${60} days after it was last used. Students never see other students' choices.</p>
+  ${cta}
+  <script>
+  (function () {
+    var EX = ${json(EXAMPLES)}, box = document.getElementById("cm"), timer = null;
+    var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); };
+    var api = "/api/class";
+    function start() {
+      box.innerHTML = '<p><button class="btn" id="mk" type="button">Make a class code</button></p><p>Already have one?</p><p><input id="have" maxlength="6" placeholder="Class code" autocapitalize="characters" style="padding:10px;border-radius:10px;border:1px solid #ccc;font:inherit;text-transform:uppercase"> <button class="btn line" id="go" type="button">Open my class</button></p><p id="msg" class="note"></p>';
+      document.getElementById("mk").onclick = function () {
+        fetch(api, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ action: "create" }) }).then(function (r) { return r.json(); }).then(function (d) {
+          if (!d.live) { document.getElementById("msg").textContent = "Class Mode is not switched on yet."; return; }
+          if (!d.code) { document.getElementById("msg").textContent = d.error || "Please try again."; return; }
+          history.replaceState(null, "", "?c=" + d.code); show(d.code);
+        }).catch(function () { document.getElementById("msg").textContent = "Could not reach the server. Check your internet."; });
+      };
+      document.getElementById("go").onclick = function () { var c = document.getElementById("have").value.toUpperCase().replace(/[^A-Z0-9]/g, ""); if (c.length === 6) { history.replaceState(null, "", "?c=" + c); show(c); } else document.getElementById("msg").textContent = "A class code has 6 letters or numbers."; };
+    }
+    function bars(rows) { var max = Math.max.apply(null, rows.map(function (r) { return r.count; }).concat(1));
+      return rows.map(function (r) { return '<div class="cbar"><span>' + esc(r.id) + '</span><i style="width:' + Math.max(4, Math.round(r.count / max * 100)) + '%"></i><b>' + r.count + '</b></div>'; }).join(""); }
+    function show(code) {
+      clearTimeout(timer);
+      fetch(api + "?c=" + code).then(function (r) { return r.json(); }).then(function (d) {
+        if (!d.live) { box.innerHTML = '<p class="note">Class Mode is not switched on yet.</p>'; return; }
+        if (d.error) { box.innerHTML = '<p class="note">' + esc(d.error) + '</p><p><a href="/class/">Back</a></p>'; return; }
+        if (!d.found) { box.innerHTML = '<p class="note">No class with code <b>' + esc(code) + '</b> was found. It may have expired after ' + 60 + ' days.</p><p><a href="/class/">Make a new class</a></p>'; return; }
+        var link = location.origin + "/?class=" + d.code;
+        var html = '<div class="ccode"><small>Your class code</small><b>' + d.code + '</b></div><p>Students open <b>' + esc(location.host) + '</b>, then type the code in the form (or open <a href="' + link + '">this link</a>, which fills it in).</p><p><b>' + d.joined + '</b> student' + (d.joined === 1 ? "" : "s") + ' joined so far.</p>';
+        if (d.joined < d.minClass) html += '<p class="note">Totals appear when ' + d.minClass + ' students have joined, so nobody can be picked out. ' + (d.minClass - d.joined) + ' more to go.</p>';
+        else {
+          html += '<h2>Career families your class is drawn to</h2>' + bars(d.categories) + '<h2>Routes</h2>' + bars(d.routes) + '<h2>Favourite subjects</h2>' + bars(d.subjects);
+          var top = d.categories.slice(0, 3);
+          if (top.length) html += '<h2>Read about these together</h2>' + top.map(function (t) { return '<p><b>' + esc(t.id) + '</b>: ' + (EX[t.id] || []).map(function (e) { return '<a href="/careers/' + e[0] + '/">' + esc(e[1]) + '</a>'; }).join(", ") + '</p>'; }).join("");
+        }
+        box.innerHTML = html + '<p><button class="btn ghost" id="rf" type="button">Refresh</button> <a href="/class/">Different class</a></p>';
+        document.getElementById("rf").onclick = function () { show(code); };
+        timer = setTimeout(function () { show(code); }, 30000);
+      }).catch(function () { box.innerHTML = '<p class="note">Could not load. Check your internet and <a href="">try again</a>.</p>'; });
+    }
+    var q = (location.search.match(/[?&]c=([A-Za-z0-9]{6})/) || [])[1];
+    if (q) show(q.toUpperCase()); else start();
+  })();
+  </script>`,
+  schema: [{ '@type': 'WebApplication', name: 'Class Mode: anonymous career totals for a class', applicationCategory: 'EducationalApplication', operatingSystem: 'Any', url: URL_ + '/class/', isAccessibleForFree: true, offers: { '@type': 'Offer', price: '0', priceCurrency: 'NGN' }, publisher: { '@id': URL_ + '/#org' } }]
+}));
+pages.push({ loc: '/class/', pri: '0.8' });
+
 // ---------- sitemap.xml, llms.txt, verification codes ----------
 write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${pages.map(p => `  <url><loc>${URL_}${p.loc}</loc><lastmod>${TODAY}</lastmod><priority>${p.pri}</priority></url>`).join('\n')}\n</urlset>\n`);
 const llms = fs.readFileSync(path.join(ROOT, 'llms.txt'), 'utf8').split('\n## Career guides')[0].trimEnd();
-write('llms.txt', llms + `\n\n## Career guides (one page each: what they do, subjects, route, how long)\n${C.map(c => `- [How to become ${an(c.title)} ${c.title} in Nigeria](${URL_}/careers/${c.slug}/): ${c.does} Route: ${ROUTES[c.route][0]}. Time: ${c.time}.${c.utme ? ' UTME: English, ' + c.utme.join(', ') + '.' : ''}`).join('\n')}\n\n## Tools\n- [What can I become with my subjects?](${URL_}/subjects/): tick your subjects, see matching careers\n- [All careers by route](${URL_}/careers/)\n`);
+write('llms.txt', llms + `\n\n## Tools\n- [Class Mode](${URL_}/class/): free class codes for teachers; students use the career form and teachers see anonymous totals of career families, routes and subjects (no names or answers stored)\n\n## Career guides (one page each: what they do, subjects, route, how long)\n${C.map(c => `- [How to become ${an(c.title)} ${c.title} in Nigeria](${URL_}/careers/${c.slug}/): ${c.does} Route: ${ROUTES[c.route][0]}. Time: ${c.time}.${c.utme ? ' UTME: English, ' + c.utme.join(', ') + '.' : ''}`).join('\n')}\n\n## Tools\n- [What can I become with my subjects?](${URL_}/subjects/): tick your subjects, see matching careers\n- [All careers by route](${URL_}/careers/)\n`);
 let index = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8').replace(/\n<meta name="(google-site-verification|msvalidate\.01)"[^>]*>/g, '');
 if (VERIFY) index = index.replace(/(<link rel="canonical"[^>]*>)/, '$1' + VERIFY);
 fs.writeFileSync(path.join(ROOT, 'index.html'), index);

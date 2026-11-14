@@ -100,3 +100,6 @@ The pictures are in `images/careers/`, one per career family (`health.svg`, `com
 ---
 
 *There is no sign-up and nothing is saved. These are ideas to explore, not decisions. Talk to a parent or teacher about them.*
+
+## Class Mode (teachers)
+`/class/` + `api/class.js`: a teacher makes a 6-character class code (no sign-up). Students type it into the form (or open `/?class=CODE`). Only fixed labels are stored: career family, route type and favourite subject. No names, no answers, no career titles. Totals show only after 5 students join. A class expires 60 days after last use. Needs the Upstash database (same `KV_REST_API_*` variables); without it the page says "not switched on".

@@ -145,6 +145,7 @@ form.addEventListener("submit", async (event) => {
   document.getElementById("demoBanner").hidden = !data.demo;   // honest banner
   showSent(data.demo ? Object.assign({}, data.sent, { model: "" }) : data.sent);
   drawCards(data.result);
+  shareWithClass(data.result, answers.subject);
   if (window.innerWidth < 860) output.scrollIntoView({ behavior: "smooth" });
 });
 
@@ -190,3 +191,21 @@ output.addEventListener("click", async (e) => {
     };
   }
 });
+
+
+// CLASS MODE: if the student typed a class code, add ONLY labels (career family, route type, subject) to the class totals
+function shareWithClass(result, subject) {
+  const code = (document.getElementById("classCode").value || "").toUpperCase().replace(/[^A-Z0-9]/g, "");
+  if (code.length !== 6 || !result || !Array.isArray(result.careers)) return;
+  const note = document.createElement("p");
+  note.className = "classnote"; note.setAttribute("role", "status");
+  output.appendChild(note);
+  fetch((window.CC_API || "api/ask").replace(/ask$/, "class"), { method: "POST", headers: { "Content-Type": "application/json" }, keepalive: true,
+    body: JSON.stringify({ action: "submit", code: code, subject: subject, careers: result.careers.map(c => ({ category: c.category, routeType: c.routeType })) }) })
+    .then(r => r.json())
+    .then(d => { note.textContent = d.counted ? "✅ Added to your class totals (no name, no answers)." : d.found === false ? "That class code was not found. Ask your teacher to check it." : "Class totals are not available right now."; })
+    .catch(() => { note.textContent = "Class totals are not available right now."; });
+}
+
+// a teacher's link (?class=CODE) fills the class code in
+try { const q = (location.search.match(/[?&]class=([A-Za-z0-9]{6})/) || [])[1]; if (q) document.getElementById("classCode").value = q.toUpperCase(); } catch (e) {}

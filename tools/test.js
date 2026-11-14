@@ -95,5 +95,37 @@ function run(body, headers = {}) {
     CAREERS.filter(c => c[3] === "trade" && c[11]).forEach(c => assert(c[11] === "shoe" || Links.find(c[11]), c[0] + " has no training page"));
     assert(!CAREERS.some(c => c[3] === "uni" && c[11] && c[0] !== "software-developer"));
   });
+  await ok("class mode: only labels are stored, small classes stay hidden, bad codes are refused", async () => {
+    const cls = require("../api/class.js");
+    const run = (method, body, query, origin) => new Promise(r => { const res = { h: {}, code: 200, setHeader() {}, status(c) { this.code = c; return this; }, json(d) { r({ code: this.code, data: d }); }, end() { r({ code: this.code }); } };
+      cls({ method, body, query: query || {}, headers: { origin: origin === undefined ? "https://naija-career-compass-ai.vercel.app" : origin, host: "naija-career-compass-ai.vercel.app", "x-forwarded-for": "5.5.5." + Math.floor(Math.random() * 200) } }, res); });
+    delete process.env.KV_REST_API_URL; delete process.env.KV_REST_API_TOKEN;
+    assert.strictEqual((await run("POST", { action: "create" })).data.live, false);
+    assert.strictEqual((await run("GET", null, { c: "ABCDEF" })).data.live, false);
+    assert.strictEqual((await run("POST", { action: "create" }, null, "https://evil.example")).code, 403);
+    process.env.KV_REST_API_URL = "https://db.example"; process.env.KV_REST_API_TOKEN = "t";
+    const real = global.fetch; let store = {}, marks = {}, seen = [];
+    global.fetch = async (u, o) => { const cmds = JSON.parse(o.body); seen.push(...cmds); return { ok: true, json: async () => cmds.map(c => {
+      if (c[0] === "SET") { if (marks[c[1]]) return { result: null }; marks[c[1]] = 1; return { result: "OK" }; }
+      if (c[0] === "EXISTS") return { result: marks[c[1]] ? 1 : 0 };
+      if (c[0] === "HINCRBY") { store[c[1]] = store[c[1]] || {}; store[c[1]][c[2]] = (store[c[1]][c[2]] || 0) + c[3]; return { result: 1 }; }
+      if (c[0] === "HGETALL") return { result: [].concat(...Object.entries(store[c[1]] || {}).map(([k, v]) => [k, String(v)])) };
+      return { result: 1 }; }) }; };
+    const code = (await run("POST", { action: "create" })).data.code;
+    assert(/^[A-HJ-KM-NP-Z2-9]{6}$/.test(code), "code looks easy to read: " + code);
+    const good = { action: "submit", code, subject: "Physics", careers: [{ category: "engineering", routeType: "University" }, { category: "electrical", routeType: "Skilled trade" }, { category: "computing", routeType: "Polytechnic or College" }] };
+    assert.strictEqual((await run("POST", { ...good, careers: [{ category: "my school is X", routeType: "University" }] })).code, 400);
+    assert.strictEqual((await run("POST", { ...good, code: "!!" })).code, 400);
+    seen = []; assert.strictEqual((await run("POST", { ...good, name: "Ada", note: "private words" })).data.counted, true);
+    assert(!JSON.stringify(seen).match(/Ada|private/), "no free text reaches the database");
+    for (let i = 0; i < 3; i++) await run("POST", good);
+    let d = (await run("GET", null, { c: code })).data; assert.strictEqual(d.joined, 4); assert(!d.categories, "hidden below 5 students");
+    await run("POST", good); d = (await run("GET", null, { c: code })).data;
+    assert.strictEqual(d.joined, 5); assert.strictEqual(d.categories[0].count, 5); assert.strictEqual(d.subjects[0].id, "Physics");
+    const missing = (await run("POST", { ...good, code: "ZZZZZZ" })).data; assert.strictEqual(missing.found, false);
+    global.fetch = real;
+    const fs = require("fs"), path = require("path");
+    assert(fs.readFileSync(path.join(__dirname, "../sitemap.xml"), "utf8").includes("/class/"));
+  });
   console.log(passed + " checks passed");
 })();

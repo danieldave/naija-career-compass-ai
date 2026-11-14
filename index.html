@@ -143,6 +143,10 @@
       <label>Write my careers in
         <select id="lang"><option value="en">English</option><option value="ha">Hausa</option><option value="yo">Yoruba</option><option value="ig">Igbo</option><option value="pcm">Pidgin</option><option value="ff">Fulfulde (AI, beta)</option><option value="kr">Kanuri (AI, beta)</option><option value="tiv">Tiv (AI, beta)</option><option value="ibb">Ibibio (AI, beta)</option><option value="efi">Efik (AI, beta)</option><option value="ijc">Izon (Ijaw) (AI, beta)</option><option value="bin">Edo (Bini) (AI, beta)</option><option value="nup">Nupe (AI, beta)</option><option value="urh">Urhobo (AI, beta)</option><option value="igl">Igala (AI, beta)</option><option value="idu">Idoma (AI, beta)</option><option value="igb">Ebira (AI, beta)</option></select>
       </label>
+      <label>Class code from your teacher <small>(optional)</small>
+        <input id="classCode" maxlength="6" autocomplete="off" autocapitalize="characters" placeholder="e.g. K7M2QX">
+        <small class="hint">If you type it, only the <b>career families</b> and your subject are added to your class totals. Never your name or answers.</small>
+      </label>
       <p id="error" class="error" role="alert"></p>
       <button id="go" class="btn big full" type="submit">Show me 3 careers ✨</button>
       <p class="small">There is no sign-up and nothing is saved. A privacy filter removes phone numbers, emails, ID numbers, names and ages before anything reaches the AI.</p>
@@ -190,6 +194,7 @@
     <p class="sub">Read how to get into any career, or see what your subjects can become.</p>
     <ul class="clist">
       <li><a href="/subjects/"><span><b>🎒 What can I become with my subjects?</b><small>Tick your subjects, see matching careers</small></span></a></li>
+      <li><a href="/class/"><span><b>🏫 Teacher? Try Class Mode</b><small>See what your whole class is drawn to</small></span></a></li>
       <li><a href="/careers/university/"><span><b>🎓 University careers</b><small>Doctor, lawyer, engineer, accountant…</small></span></a></li>
       <li><a href="/careers/polytechnic-and-college/"><span><b>🏫 Polytechnic and college careers</b><small>ND/HND, NCE, health and aviation schools</small></span></a></li>
       <li><a href="/careers/skilled-trades/"><span><b>🛠️ Skilled trade careers</b><small>Electrician, solar, welding, fashion…</small></span></a></li>
