@@ -62,7 +62,7 @@ async function fuseOK() {
   const ctrl = new AbortController(); const timer = setTimeout(() => ctrl.abort(), 2000);
   try {
     const r = await fetch(url + "/pipeline", { method: "POST", signal: ctrl.signal, headers: { Authorization: "Bearer " + token, "Content-Type": "application/json" },
-      body: JSON.stringify([["INCR", "fuse:" + day], ["EXPIRE", "fuse:" + day, 172800]]) });
+      body: JSON.stringify([["INCR", "fuse:career:" + day], ["EXPIRE", "fuse:career:" + day, 172800]]) });
     const rows = await r.json();
     return !(Number(rows && rows[0] && rows[0].result) > max);
   } catch (e) { return true; } finally { clearTimeout(timer); }
