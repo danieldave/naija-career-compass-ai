@@ -103,3 +103,6 @@ The pictures are in `images/careers/`, one per career family (`health.svg`, `com
 
 ## Class Mode (teachers)
 `/class/` + `api/class.js`: a teacher makes a 6-character class code (no sign-up). Students type it into the form (or open `/?class=CODE`). Only fixed labels are stored: career family, route type and favourite subject. No names, no answers, no career titles. Totals show only after 5 students join. A class expires 60 days after last use. Needs the Upstash database (same `KV_REST_API_*` variables); without it the page says "not switched on".
+
+## Fairness test
+`OPENAI_API_KEY=sk-... node tools/fairness.js` sends 40 made-up students to the AI four times each, changing only one line ("I am a girl." / "I am a boy." / a neutral line / nothing). It reports whether girls and boys are steered to different career families beyond the AI's normal wobble, and whether every answer keeps one university route and one skilled trade. About 160 AI calls. Without a key it runs on demo answers to test the script itself.
