@@ -38,6 +38,35 @@ function tooMany(ip) {
   if (hits.size > 5000) hits.clear();
   return recent.length > 20;
 }
+// Hourly limit too: 120 questions an hour from one internet address (a whole school can share one)
+const hourly = new Map();
+function tooManyThisHour(ip) {
+  const now = Date.now();
+  const recent = (hourly.get(ip) || []).filter(t => now - t < 3600000);
+  recent.push(now); hourly.set(ip, recent);
+  if (hourly.size > 5000) hourly.clear();
+  return recent.length > 120;
+}
+
+// THE DAILY FUSE: the most AI calls the whole site may make in one day (DAILY_AI_LIMIT, default 2000).
+// If someone attacks the site, the fuse blows and the AI rests until tomorrow, so the bill cannot run away.
+let fuse = { day: "", n: 0 };
+async function fuseOK() {
+  const max = Number(process.env.DAILY_AI_LIMIT) || 2000;
+  const day = new Date().toISOString().slice(0, 10);
+  if (fuse.day !== day) fuse = { day, n: 0 };
+  if (++fuse.n > max) return false;
+  const url = (process.env.KV_REST_API_URL || process.env.UPSTASH_REDIS_REST_URL || "").replace(/\/$/, "");
+  const token = process.env.KV_REST_API_TOKEN || process.env.UPSTASH_REDIS_REST_TOKEN || "";
+  if (!url || !token) return true;
+  const ctrl = new AbortController(); const timer = setTimeout(() => ctrl.abort(), 2000);
+  try {
+    const r = await fetch(url + "/pipeline", { method: "POST", signal: ctrl.signal, headers: { Authorization: "Bearer " + token, "Content-Type": "application/json" },
+      body: JSON.stringify([["INCR", "fuse:" + day], ["EXPIRE", "fuse:" + day, 172800]]) });
+    const rows = await r.json();
+    return !(Number(rows && rows[0] && rows[0].result) > max);
+  } catch (e) { return true; } finally { clearTimeout(timer); }
+}
 
 // Saved answers (kept for 6 hours in this copy of the kitchen)
 const saved = new Map();
@@ -45,6 +74,7 @@ function remember(key, value) { if (saved.size > 300) saved.delete(saved.keys().
 function recall(key) { const s = saved.get(key); return s && Date.now() - s.t < 6 * 3600000 ? s.value : null; }
 
 async function callAI(instructions, input, schema, name) {
+  if (!(await fuseOK())) throw new Error("daily AI limit reached");
   const ctrl = new AbortController();
   const timer = setTimeout(() => ctrl.abort(), 30000);
   try {
@@ -79,10 +109,13 @@ module.exports = async function handler(req, res) {
   if (req.method === "OPTIONS") return res.status(204).end();
   if (req.method !== "POST") return res.status(405).json({ error: "Use POST." });
 
-  const ip = String(req.headers["x-forwarded-for"] || req.socket?.remoteAddress || "x").split(",")[0];
+  const ip = String(req.headers["x-real-ip"] || req.headers["x-forwarded-for"] || req.socket?.remoteAddress || "x").split(",")[0].trim();
   if (tooMany(ip)) return res.status(429).json({ error: "Too many questions. Wait one minute." });
+  if (tooManyThisHour(ip)) return res.status(429).json({ error: "Too many questions this hour. Please try again later." });
 
-  const body = req.body || {};
+  let body = req.body;
+  if (typeof body === "string") { try { body = JSON.parse(body); } catch (e) { body = {}; } }
+  if (!body || typeof body !== "object") body = {};
   const lang = LANGUAGES[body.lang] ? body.lang : "en";
 
   // ---------- "Talk to my parents" ----------
