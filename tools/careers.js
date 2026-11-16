@@ -77,7 +77,7 @@ const CAREERS = [
     'About 3 years', 'Pharmacy Council of Nigeria (PCN)', 'Learn why medicines must be kept away from heat and sunlight.', ''],
   // ---------------- LAW, MONEY, PEOPLE ----------------
   ['lawyer', 'Lawyer', 'law', 'uni', 'A lawyer advises people and organisations about the law and speaks for them in court.',
-    ['You like reading and arguing a point fairly.', 'You notice details.', 'You care about fairness.'], ['Literature in English', 'Government or History', 'One other Arts or Social Science subject'],
+    ['You like reading and arguing a point fairly.', 'You notice details.', 'You care about fairness.'], ['Any three Arts or Social Science subjects, for example Literature in English, Government, History, Economics or CRS/IRS (most faculties also want a credit in Literature in English at WAEC/NECO)'],
     ['Get 5 credits including English, Maths and Literature in English.', 'Write UTME and gain admission to study Law (LL.B).', 'Study for 5 years, then attend the Nigerian Law School for about 1 year.', 'Get called to the Bar, do NYSC, then practise.'],
     '5 years, plus about 1 year at the Nigerian Law School', 'Council of Legal Education and the Body of Benchers', 'Join or start a debate club and argue the side you do not agree with.', ''],
   ['accountant', 'Accountant', 'business', 'uni', 'An accountant records and checks money so that businesses, schools and governments know what they have and spend it properly.',
@@ -109,9 +109,9 @@ const CAREERS = [
     ['Get 5 credits including English and Maths.', 'Write UTME and study Social Work or Sociology.', 'Study for 4 years, with field placements.', 'Work with government, hospitals, schools or NGOs.'],
     '4 years', 'Professional associations of social workers', 'Volunteer for one community clean-up or outreach with an adult.', ''],
   ['journalist', 'Journalist or Broadcaster', 'media', 'uni', 'A journalist finds out what is true and tells the public clearly, on radio, TV, in print or online.',
-    ['You are curious and ask questions.', 'You write or speak well.', 'You care about the truth.'], ['Literature in English', 'Government or Economics', 'One other Arts or Social Science subject'],
+    ['You are curious and ask questions.', 'You write or speak well.', 'You care about the truth.'], ['Any three Arts or Social Science subjects, for example Literature in English, Government, Economics or History'],
     ['Get 5 credits including English and Maths.', 'Choose a route: Mass Communication at a university (UTME) or polytechnic (ND/HND).', 'Build a portfolio: school press club, blog, campus radio.', 'Work in media houses or as an independent creator.'],
-    '4 years (degree) or ND and HND', 'Nigerian Union of Journalists and related bodies', 'Write a 150-word report on something that happened in your school, with two sources.', ''],
+    '4 years (degree) or ND and HND', 'Nigeria Union of Journalists and related bodies', 'Write a 150-word report on something that happened in your school, with two sources.', ''],
   // ---------------- ENGINEERING AND BUILDING ----------------
   ['civil-engineer', 'Civil Engineer', 'engineering', 'uni', 'A civil engineer designs and supervises roads, bridges, buildings, dams and water systems.',
     ['You like Maths and Physics.', 'You wonder how buildings stand up.', 'You like seeing a project finished.'], MPC,
