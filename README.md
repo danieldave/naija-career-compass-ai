@@ -106,3 +106,11 @@ The pictures are in `images/careers/`, one per career family (`health.svg`, `com
 
 ## Fairness test
 `OPENAI_API_KEY=sk-... node tools/fairness.js` sends 40 made-up students to the AI four times each, changing only one line ("I am a girl." / "I am a boy." / a neutral line / nothing). It reports whether girls and boys are steered to different career families beyond the AI's normal wobble, and whether every answer keeps one university route and one skilled trade. About 160 AI calls. Without a key it runs on demo answers to test the script itself.
+
+## Version 5 (November 2026)
+- No photos: an animated compass in the welcome area and a moving picture-sign on each career card. Faster to load and works with weak internet.
+- New colours: violet, coral, sun-yellow and mint.
+- The form asks for **3 best subjects** (joined into one answer for the AI; the first one is used for class totals).
+- Menu: Start, Careers, FAQs. "How it works" sits near the bottom, above the FAQs.
+- The 5-part prompt formula is no longer on the public page. The team's learning copy is at `/prompt-formula.html` (not in the menu, hidden from search engines).
+- Animations switch off for people who set "reduce motion" on their device.

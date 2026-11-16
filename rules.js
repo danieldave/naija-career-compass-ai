@@ -72,7 +72,7 @@
   // 2. THE QUESTIONS on the form (in the same order as our design)
   // ---------------------------------------------------------------
   const QUESTIONS = [
-    { id: "subject", label: "My favourite subject", required: true },
+    { id: "subject", label: "My best subjects", required: true },
     { id: "enjoy", label: "What do you enjoy doing?", required: true },
     { id: "loseTime", label: "What do you lose track of time doing?", required: true },
     { id: "curious", label: "What are you curious about?", required: true },

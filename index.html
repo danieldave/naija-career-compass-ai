@@ -40,7 +40,7 @@
 <!-- PART 1: the top bar (logo, name, night mode) -->
 <header class="bar">
   <a class="brand" href="#top"><img src="images/logo.svg" alt="Naija Career Compass logo: a compass"><span>NAIJA CAREER COMPASS <b>AI</b></span></a>
-  <nav class="links"><a href="#how">How it works</a><a href="#formula">Prompt formula</a><a href="#start">Start</a></nav>
+  <nav class="links"><a href="#start">Start</a><a href="/careers/">Careers</a><a href="#faq">FAQs</a></nav>
   <button id="themeBtn" class="theme" type="button" aria-label="Switch night mode on or off" title="Night mode"><span class="sun">☀️</span><span class="moon">🌙</span></button>
 </header>
 
@@ -54,15 +54,20 @@
       <p class="lead">Tell us what you enjoy. The AI suggests <b>3 careers</b> with <b>real Nigerian routes</b> into them: university, polytechnic or a skilled trade.</p>
       <div class="hero-btns">
         <a class="btn big" href="#start">Start now →</a>
-        <a class="btn line" href="#how">How it works</a>
+        <a class="btn line" href="/subjects/">What can my subjects become?</a>
       </div>
+      <p class="rotator">Maybe a <span id="rot">software developer</span>?</p>
       <ul class="facts"><li>No sign-up</li><li>No name or age needed</li><li>Nothing is saved</li></ul>
     </div>
-    <div class="collage" aria-hidden="true">
-      <img data-cat="health" alt="">
-      <img data-cat="engineering" alt="">
-      <img data-cat="computing" alt="">
-      <img data-cat="agriculture" alt="">
+    <div class="stage" aria-hidden="true">
+      <div class="ring r1"></div><div class="ring r2"></div>
+      <svg class="dial" viewBox="0 0 200 200" width="200" height="200">
+        <circle cx="100" cy="100" r="92" fill="none" stroke="currentColor" stroke-width="3" stroke-dasharray="2 10" opacity=".5"/>
+        <circle cx="100" cy="100" r="74" class="face"/>
+        <g class="needle"><polygon points="100,34 112,100 100,112 88,100" class="north"/><polygon points="100,166 112,100 100,88 88,100" class="south"/></g>
+        <circle cx="100" cy="100" r="9" class="hub"/>
+      </svg>
+      <span class="orb o1">🩺</span><span class="orb o2">🛠️</span><span class="orb o3">💻</span><span class="orb o4">🌱</span><span class="orb o5">🎨</span><span class="orb o6">⚖️</span>
     </div>
   </section>
 
@@ -72,35 +77,26 @@
     <p>Secondary and tertiary students often have limited awareness of the full range of career opportunities available to them, and existing career guidance is often generic or disconnected from their actual interests and strengths.</p>
   </section>
 
-  <!-- PART 4: how it works -->
-  <section id="how" class="section">
-    <h2 class="title">How it works</h2>
-    <p class="sub">Four steps, from your answers to your 3 career cards.</p>
-    <ol class="steps">
-      <li class="s1"><span class="num">1</span><span class="ico">✍️</span><h3>You answer</h3><p>Pick your favourite subject and what you enjoy. Choose from the lists or type your own.</p></li>
-      <li class="s2"><span class="num">2</span><span class="ico">🛡️</span><h3>Our code checks</h3><p>A privacy filter removes names, ages, phone numbers and emails. Then our code checks that every answer is filled in.</p></li>
-      <li class="s3"><span class="num">3</span><span class="ico">🤖</span><h3>The AI thinks</h3><p>The AI reads our 5-part prompt plus your answers, and replies with exactly 3 careers as JSON.</p></li>
-      <li class="s4"><span class="num">4</span><span class="ico">🧭</span><h3>You get 3 cards</h3><p>Our code checks the guardrails, then shows each career with a photo, the reason, the subjects and the routes.</p></li>
-    </ol>
-  </section>
-
   <div id="demoBanner" class="banner" hidden>DEMO MODE: these are sample ideas chosen by our code, not by the AI.</div>
 
   <!-- PART 5: the form and the output -->
   <main id="start" class="two">
     <form id="form" class="card form" novalidate>
       <h2 class="formtitle">Tell us about you</h2>
-      <label>My favourite subject
-        <select id="subject" required>
-          <option value="">Choose a subject</option>
-          <option>Mathematics</option><option>English Language</option><option>Biology</option><option>Chemistry</option>
+      <fieldset class="subjects">
+        <legend>My 3 best subjects</legend>
+        <input type="hidden" id="subject">
+        <div class="three">
+          <select id="subject1" aria-label="Best subject 1" required><option value="">1st subject</option><option>Mathematics</option><option>English Language</option><option>Biology</option><option>Chemistry</option>
           <option>Physics</option><option>Agricultural Science</option><option>Computer Studies</option><option>Basic Technology</option>
           <option>Technical Drawing</option><option>Fine Art</option><option>Music</option><option>Literature in English</option>
           <option>Government</option><option>Economics</option><option>Commerce</option><option>Geography</option>
           <option>Home Economics</option><option>Food and Nutrition</option><option>Clothing and Textiles</option>
-          <option>Physical and Health Education</option><option>Civic Education</option><option>Yoruba</option><option>Igbo</option><option>Hausa</option>
-        </select>
-      </label>
+          <option>Physical and Health Education</option><option>Civic Education</option><option>Yoruba</option><option>Igbo</option><option>Hausa</option></select>
+          <select id="subject2" aria-label="Best subject 2" required><option value="">2nd subject</option></select>
+          <select id="subject3" aria-label="Best subject 3" required><option value="">3rd subject</option></select>
+        </div>
+      </fieldset>
       <label>What do you enjoy doing?
         <input id="enjoy" list="enjoyList" maxlength="120" placeholder="Pick or type, e.g. fixing things" required>
       </label>
@@ -155,18 +151,11 @@
     <section class="card output" aria-live="polite">
       <h2>Your 3 careers</h2>
       <div id="output">
-        <div class="empty"><img src="images/logo.svg" alt=""><p>Your 3 careers will appear here, each with a photo, the reason we chose it, the subjects to focus on and real Nigerian routes into it.</p></div>
+        <div class="empty"><img src="images/logo.svg" alt=""><p>Your 3 careers will appear here, each with the reason we chose it, the subjects to focus on and real Nigerian routes into it.</p></div>
       </div>
       <button id="printBtn" class="btn line full" type="button" hidden>Print my careers</button>
     </section>
   </main>
-
-  <!-- PART 6: the 5-part prompt formula (filled in from rules.js, the real prompt) -->
-  <section id="formula" class="section">
-    <h2 class="title">The 5-part prompt formula</h2>
-    <p class="sub">Every time, the AI reads these 5 parts with your answers. This is our real prompt, word for word, taken from <code>rules.js</code>.</p>
-    <ol id="parts" class="parts"></ol>
-  </section>
 
   <!-- PART 7: guardrails, privacy and the key -->
   <section class="section">
@@ -179,14 +168,6 @@
       <div class="card tile t2"><h3>🔒 Privacy</h3><p>There is no sign-up and nothing is saved. Before anything reaches the AI, a privacy filter removes phone numbers, emails, account or ID numbers, names after "my name is", and ages.</p></div>
       <div class="card tile t3"><h3>🔑 The secret key</h3><p>The key that lets us use the AI is paid for by an adult. It lives only on the server, never in this page and never on the screen.</p></div>
     </div>
-    <details id="sentBox" class="card">
-      <summary>See exactly what we sent to the AI</summary>
-      <div class="env">
-        <div><h4>1. Our 5-part prompt, the same for everyone</h4><pre id="sentRules">Ask for careers first.</pre></div>
-        <div><h4>2. Your answers, after the privacy filter</h4><pre id="sentInput">Ask for careers first.</pre></div>
-      </div>
-      <p class="small" id="sentModel"></p>
-    </details>
   </section>
   <!-- VERSION 4: the Career Library (real pages made by tools/build.js) -->
   <section class="section explore">
@@ -203,10 +184,23 @@
     </ul>
   </section>
 
+  <!-- PART 4: how it works -->
+  <section id="how" class="section">
+    <h2 class="title">How it works</h2>
+    <p class="sub">Four steps, from your answers to your 3 career cards.</p>
+    <ol class="steps">
+      <li class="s1"><span class="num">1</span><span class="ico">✍️</span><h3>You answer</h3><p>Pick your 3 best subjects and what you enjoy. Choose from the lists or type your own.</p></li>
+      <li class="s2"><span class="num">2</span><span class="ico">🛡️</span><h3>Our code checks</h3><p>A privacy filter removes names, ages, phone numbers and emails. Then our code checks that every answer is filled in.</p></li>
+      <li class="s3"><span class="num">3</span><span class="ico">🤖</span><h3>The AI thinks</h3><p>The AI reads our careful instructions plus your answers, and replies with exactly 3 careers.</p></li>
+      <li class="s4"><span class="num">4</span><span class="ico">🧭</span><h3>You get 3 cards</h3><p>Our code checks the guardrails, then shows each career with the reason, the subjects and the routes.</p></li>
+    </ol>
+  </section>
+
   <!-- PART 8: questions people ask (also read by search engines and AI answer engines) -->
   <section id="faq" class="section">
     <h2 class="title">Questions students and parents ask</h2>
     <div class="faq">
+      <details class="card"><summary>How does Naija Career Compass work?</summary><p>You answer 9 short questions about your best subjects and what you enjoy. A privacy filter removes personal details, the AI suggests exactly 3 careers, and our code checks its answer before you see it.</p></details>
       <details class="card"><summary>How do I choose a career in Nigeria as a secondary school student?</summary><p>Start with what you enjoy, what you are naturally good at and where you like to work. We turn those answers into 3 careers, each with the subjects to focus on and a real Nigerian route: university through JAMB/UTME, polytechnic (ND/HND) or college of education (NCE), or a skilled trade through NABTEB or an apprenticeship.</p></details>
       <details class="card"><summary>Is it free and private?</summary><p>Yes. There is no sign-up and nothing is saved. A privacy filter removes names, ages, phone numbers, emails and ID numbers before anything reaches the AI.</p></details>
       <details class="card"><summary>Can I get my career ideas in Hausa, Yoruba, Igbo or Pidgin?</summary><p>Yes. Choose from 17 Nigerian languages in "Write my careers in". Career titles and exam names (WAEC, JAMB, NABTEB) stay in English so you can search for them.</p></details>
@@ -219,7 +213,6 @@
 <footer>
   <p class="made">Built with AI by Yewa College ByteBusters (Generative AI Team)</p>
   <p>ByteBusters National Showcase 2026 · These are ideas to explore, not decisions. Talk to a parent or teacher about them.</p>
-  <p class="credit">Career photos from <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a> (free to use).</p>
 </footer>
 
 <datalist id="enjoyList"><option>fixing things</option><option>drawing and designing</option><option>helping people</option><option>cooking</option><option>talking to people</option><option>building things</option><option>writing stories</option><option>playing sports</option><option>organising events</option><option>caring for animals</option><option>solving puzzles</option><option>using computers</option><option>singing or playing music</option><option>selling things</option></datalist>

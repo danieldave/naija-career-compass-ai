@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex"><title>The 5-part prompt formula (for our team) | Naija Career Compass</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Poppins:wght@700;800;900&display=swap" rel="stylesheet"><link rel="stylesheet" href="/style.css"></head>
+<body><div class="page"><section class="section"><p><a href="/">← Back to Naija Career Compass</a></p>
+<h1 class="title">The 5-part prompt formula</h1>
+<p class="sub">This page is for the ByteBusters team. It shows our real prompt, word for word, taken from <code>rules.js</code>. It is not in the website menu.</p>
+<ol id="parts" class="parts"></ol></section></div>
+<script src="/rules.js"></script>
+<script>
+var C = ["#FFC738", "#FF3D81", "#5B2EFF", "#12D6A3", "#C2189B"], esc = function (s) { return String(s).replace(/[&<>]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]; }); };
+document.getElementById("parts").innerHTML = Rules.PROMPT_PARTS.map(function (p, i) { return '<li style="--c:' + C[i] + '"><div class="k"><b>' + (i + 1) + '</b><small>' + p.part + '</small></div><div><h3>' + p.part.charAt(0) + p.part.slice(1).toLowerCase() + '</h3><p class="job">' + p.job + '</p><p class="txt">' + esc(p.text) + '</p></div></li>'; }).join("");
+</script></body></html>

@@ -24,6 +24,9 @@
 ## Tools
 - [Class Mode](https://naija-career-compass-ai.vercel.app/class/): free class codes for teachers; students use the career form and teachers see anonymous totals of career families, routes and subjects (no names or answers stored)
 
+## Tools
+- [Class Mode](https://naija-career-compass-ai.vercel.app/class/): free class codes for teachers; students use the career form and teachers see anonymous totals of career families, routes and subjects (no names or answers stored)
+
 ## Career guides (one page each: what they do, subjects, route, how long)
 - [How to become a Medical Doctor in Nigeria](https://naija-career-compass-ai.vercel.app/careers/medical-doctor/): A medical doctor finds out what is making people sick and treats them, in hospitals, clinics and communities. Route: University. Time: 6 years of study, plus 1 year housemanship. UTME: English, Physics, Chemistry, Biology.
 - [How to become a Pharmacist in Nigeria](https://naija-career-compass-ai.vercel.app/careers/pharmacist/): A pharmacist is the expert on medicines: how they are made, how they work and how to use them safely. Route: University. Time: 5 to 6 years, plus 1 year internship. UTME: English, Physics, Chemistry, Biology.
