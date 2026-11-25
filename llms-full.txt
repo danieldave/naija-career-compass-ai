@@ -1,0 +1,430 @@
+# Naija Career Compass AI
+
+> A free, private career guide for Nigerian secondary school students, built by Yewa College ByteBusters (Generative AI Team). Students answer 9 questions about what they enjoy and the AI suggests 3 careers, each with subjects to focus on and real Nigerian routes.
+
+## What it does
+- Suggests exactly 3 careers. Every set includes at least one university route (JAMB/UTME) and one skilled trade (NABTEB, NSQ or apprenticeship); polytechnic (ND/HND) and college of education (NCE) routes are also used.
+- Writes the results in 17 Nigerian languages: English, Hausa, Yoruba, Igbo, Pidgin, Fulfulde, Kanuri, Tiv, Ibibio, Efik, Izon, Edo, Nupe, Urhobo, Igala, Idoma and Ebira. Career titles and exam names stay in English.
+- "Talk to my parents": writes a short, respectful message in the parents' language about one career, with answers to common parental worries, ready to copy or send on WhatsApp.
+- Skilled-trade careers link to their training page on Apprentice Pathways Explorer (https://apprentice-pathway-explorer.vercel.app/).
+- No sign-up and nothing is saved. A privacy filter removes names, ages, phone numbers, emails and ID numbers before anything reaches the AI.
+- Guardrails: never promises a salary or job, and never says a career is not for someone because of who they are.
+
+## Pages
+- [Home and career tool](https://naija-career-compass-ai.vercel.app/)
+- [Career questions and answers](https://naija-career-compass-ai.vercel.app/faq/): JAMB subjects, university vs polytechnic, NABTEB and more
+- [About / who built this](https://naija-career-compass-ai.vercel.app/about/): made by ByteBusters students at Yewa College, Ilaro (Odu'a Investment Foundation)
+- [Full text for AI assistants](https://naija-career-compass-ai.vercel.app/llms-full.txt)
+
+## Related ByteBusters tools
+- [Apprentice Pathways Explorer](https://apprentice-pathway-explorer.vercel.app/): Nigerian trades, training routes and apprenticeship tools
+- [Inflation Explainer](https://inflation-explainer.vercel.app/)
+- [Community Voice AI](https://community-voice-ai-ziry.vercel.app/)
+
+## Tools
+- [Class Mode](https://naija-career-compass-ai.vercel.app/class/): free class codes for teachers; students use the career form and teachers see anonymous totals of career families, routes and subjects (no names or answers stored)
+
+## Tools
+- [Class Mode](https://naija-career-compass-ai.vercel.app/class/): free class codes for teachers; students use the career form and teachers see anonymous totals of career families, routes and subjects (no names or answers stored)
+
+## Tools
+- [Class Mode](https://naija-career-compass-ai.vercel.app/class/): free class codes for teachers; students use the career form and teachers see anonymous totals of career families, routes and subjects (no names or answers stored)
+
+## Tools
+- [Class Mode](https://naija-career-compass-ai.vercel.app/class/): free class codes for teachers; students use the career form and teachers see anonymous totals of career families, routes and subjects (no names or answers stored)
+
+## Tools
+- [Class Mode](https://naija-career-compass-ai.vercel.app/class/): free class codes for teachers; students use the career form and teachers see anonymous totals of career families, routes and subjects (no names or answers stored)
+
+## Tools
+- [Class Mode](https://naija-career-compass-ai.vercel.app/class/): free class codes for teachers; students use the career form and teachers see anonymous totals of career families, routes and subjects (no names or answers stored)
+
+## Career guides (one page each: what they do, subjects, route, how long)
+- [How to become a Medical Doctor in Nigeria](https://naija-career-compass-ai.vercel.app/careers/medical-doctor/): A medical doctor finds out what is making people sick and treats them, in hospitals, clinics and communities. Route: University. Time: 6 years of study, plus 1 year housemanship. UTME: English, Physics, Chemistry, Biology.
+- [How to become a Pharmacist in Nigeria](https://naija-career-compass-ai.vercel.app/careers/pharmacist/): A pharmacist is the expert on medicines: how they are made, how they work and how to use them safely. Route: University. Time: 5 to 6 years, plus 1 year internship. UTME: English, Physics, Chemistry, Biology.
+- [How to become a Nurse in Nigeria](https://naija-career-compass-ai.vercel.app/careers/nurse/): A nurse cares for patients every day: giving treatment, watching their progress and comforting families. Route: University. Time: 5 years at university, or about 3 to 4 years at a College of Nursing. UTME: English, Physics, Chemistry, Biology.
+- [How to become a Medical Laboratory Scientist in Nigeria](https://naija-career-compass-ai.vercel.app/careers/medical-laboratory-scientist/): A medical laboratory scientist tests blood and other samples so doctors know exactly what is wrong. Route: University. Time: 5 years, plus 1 year internship. UTME: English, Physics, Chemistry, Biology.
+- [How to become a Physiotherapist in Nigeria](https://naija-career-compass-ai.vercel.app/careers/physiotherapist/): A physiotherapist helps people move again after injury, stroke or surgery, using exercise and hands-on treatment. Route: University. Time: 5 to 6 years, plus 1 year internship. UTME: English, Physics, Chemistry, Biology.
+- [How to become a Dentist in Nigeria](https://naija-career-compass-ai.vercel.app/careers/dentist/): A dentist looks after teeth, gums and the mouth, from check-ups to surgery. Route: University. Time: 6 years, plus 1 year housemanship. UTME: English, Physics, Chemistry, Biology.
+- [How to become an Optometrist in Nigeria](https://naija-career-compass-ai.vercel.app/careers/optometrist/): An optometrist tests eyesight, prescribes glasses and spots eye problems early. Route: University. Time: 6 years, plus 1 year internship. UTME: English, Physics, Chemistry, Biology.
+- [How to become a Radiographer in Nigeria](https://naija-career-compass-ai.vercel.app/careers/radiographer/): A radiographer takes X-rays, scans and other images that let doctors see inside the body. Route: University. Time: 5 years, plus 1 year internship. UTME: English, Physics, Chemistry, Biology.
+- [How to become a Veterinary Doctor in Nigeria](https://naija-career-compass-ai.vercel.app/careers/veterinary-doctor/): A veterinary doctor keeps animals healthy: pets, poultry, cattle and wildlife. This also protects people's food. Route: University. Time: 6 years. UTME: English, Physics, Chemistry, Biology.
+- [How to become a Nutritionist or Dietitian in Nigeria](https://naija-career-compass-ai.vercel.app/careers/nutritionist-dietitian/): A nutritionist or dietitian plans what people should eat to stay healthy or recover from illness. Route: University. Time: 4 to 5 years. UTME: English, Chemistry, Biology, Mathematics or Physics.
+- [How to become a Community Health Extension Worker (CHEW) in Nigeria](https://naija-career-compass-ai.vercel.app/careers/community-health-worker/): A community health worker gives basic treatment, immunisation and health teaching in towns and villages, often at a primary health centre. Route: Polytechnic or College. Time: About 2 to 3 years.
+- [How to become a Pharmacy Technician in Nigeria](https://naija-career-compass-ai.vercel.app/careers/pharmacy-technician/): A pharmacy technician works with a pharmacist to prepare and give out medicines correctly. Route: Polytechnic or College. Time: About 3 years.
+- [How to become a Lawyer in Nigeria](https://naija-career-compass-ai.vercel.app/careers/lawyer/): A lawyer advises people and organisations about the law and speaks for them in court. Route: University. Time: 5 years, plus about 1 year at the Nigerian Law School. UTME: English, Any three Arts or Social Science subjects, for example Literature in English, Government, History, Economics or CRS/IRS (most faculties also want a credit in Literature in English at WAEC/NECO).
+- [How to become an Accountant in Nigeria](https://naija-career-compass-ai.vercel.app/careers/accountant/): An accountant records and checks money so that businesses, schools and governments know what they have and spend it properly. Route: University. Time: 4 years at university; professional exams are extra. UTME: English, Mathematics, Economics, One other Social Science subject.
+- [How to become an Economist in Nigeria](https://naija-career-compass-ai.vercel.app/careers/economist/): An economist studies how people, businesses and countries use money and resources, and advises on decisions like prices and jobs. Route: University. Time: 4 years. UTME: English, Mathematics, Economics, Government, Geography or another Social Science subject.
+- [How to become a Banker in Nigeria](https://naija-career-compass-ai.vercel.app/careers/banker/): A banker helps people and businesses save, borrow and move money safely. Route: University. Time: 4 years (degree) or ND and HND. UTME: English, Mathematics, Economics, One other Social Science subject.
+- [How to become an Entrepreneur (Business Owner) in Nigeria](https://naija-career-compass-ai.vercel.app/careers/entrepreneur/): An entrepreneur spots a problem people will pay to solve, and builds a business around it. Route: Polytechnic or College. Time: It is a lifelong learning path.
+- [How to become a Teacher in Nigeria](https://naija-career-compass-ai.vercel.app/careers/teacher/): A teacher helps learners understand subjects and grow in character. Every other career starts with one. Route: University. Time: 3 years (NCE) or 4 years (B.Ed). UTME: English, Two subjects you want to teach, One other relevant subject.
+- [How to become a Psychologist or Counsellor in Nigeria](https://naija-career-compass-ai.vercel.app/careers/psychologist/): A psychologist or counsellor studies how people think and feel, and helps them through difficult times and decisions. Route: University. Time: 4 years, more for clinical practice. UTME: English, Any three subjects (Biology helps).
+- [How to become a Social Worker in Nigeria](https://naija-career-compass-ai.vercel.app/careers/social-worker/): A social worker supports children, families and vulnerable people to get help and stay safe. Route: University. Time: 4 years. UTME: English, Any three Arts or Social Science subjects.
+- [How to become a Journalist or Broadcaster in Nigeria](https://naija-career-compass-ai.vercel.app/careers/journalist/): A journalist finds out what is true and tells the public clearly, on radio, TV, in print or online. Route: University. Time: 4 years (degree) or ND and HND. UTME: English, Any three Arts or Social Science subjects, for example Literature in English, Government, Economics or History.
+- [How to become a Civil Engineer in Nigeria](https://naija-career-compass-ai.vercel.app/careers/civil-engineer/): A civil engineer designs and supervises roads, bridges, buildings, dams and water systems. Route: University. Time: 5 years. UTME: English, Mathematics, Physics, Chemistry.
+- [How to become a Mechanical Engineer in Nigeria](https://naija-career-compass-ai.vercel.app/careers/mechanical-engineer/): A mechanical engineer designs and maintains machines: engines, factory lines, generators and cooling systems. Route: University. Time: 5 years. UTME: English, Mathematics, Physics, Chemistry.
+- [How to become an Electrical and Electronics Engineer in Nigeria](https://naija-career-compass-ai.vercel.app/careers/electrical-engineer/): An electrical engineer designs power systems, electronics and communication networks. Route: University. Time: 5 years. UTME: English, Mathematics, Physics, Chemistry.
+- [How to become a Chemical Engineer in Nigeria](https://naija-career-compass-ai.vercel.app/careers/chemical-engineer/): A chemical engineer turns raw materials into useful products such as fuel, food, plastics, soap and medicine, at factory scale. Route: University. Time: 5 years. UTME: English, Mathematics, Physics, Chemistry.
+- [How to become a Petroleum and Gas Engineer in Nigeria](https://naija-career-compass-ai.vercel.app/careers/petroleum-engineer/): A petroleum engineer works out how to find and bring up oil and gas safely and efficiently. Route: University. Time: 5 years. UTME: English, Mathematics, Physics, Chemistry.
+- [How to become an Architect in Nigeria](https://naija-career-compass-ai.vercel.app/careers/architect/): An architect designs buildings that are safe, useful and beautiful. Route: University. Time: About 6 years of study. UTME: English, Mathematics, Physics, Chemistry, Geography or Fine Art.
+- [How to become a Quantity Surveyor in Nigeria](https://naija-career-compass-ai.vercel.app/careers/quantity-surveyor/): A quantity surveyor works out what a building project will cost and keeps it within budget. Route: University. Time: About 5 years. UTME: English, Mathematics, Physics, Economics, Geography or Chemistry.
+- [How to become an Estate Surveyor and Valuer in Nigeria](https://naija-career-compass-ai.vercel.app/careers/estate-surveyor/): An estate surveyor values, manages and sells land and buildings. Route: University. Time: About 5 years. UTME: English, Mathematics, Economics, One other subject.
+- [How to become a Land Surveyor (Surveying and Geoinformatics) in Nigeria](https://naija-career-compass-ai.vercel.app/careers/land-surveyor/): A land surveyor measures land accurately and makes the maps used for roads, buildings and boundaries. Route: Polytechnic or College. Time: ND 2 years and HND 2 years, or a 5-year degree. UTME: English, Mathematics, Physics, Geography or Chemistry.
+- [How to become a Building Technologist (Builder) in Nigeria](https://naija-career-compass-ai.vercel.app/careers/building-technologist/): A builder manages the actual construction on site so that the building matches the drawings and is safe. Route: Polytechnic or College. Time: ND 2 years and HND 2 years, or a 5-year degree. UTME: English, Mathematics, Physics, Chemistry.
+- [How to become a Software Developer in Nigeria](https://naija-career-compass-ai.vercel.app/careers/software-developer/): A software developer writes the code behind apps, websites and games. Route: University. Time: 4 years (degree); skills can start now. UTME: English, Mathematics, Physics, One other Science subject.
+- [How to become a Data Analyst in Nigeria](https://naija-career-compass-ai.vercel.app/careers/data-analyst/): A data analyst turns numbers into answers that help organisations decide what to do. Route: University. Time: 4 years (degree); skills can start now. UTME: English, Mathematics, Two of Physics, Chemistry and Economics.
+- [How to become a Cybersecurity Analyst in Nigeria](https://naija-career-compass-ai.vercel.app/careers/cybersecurity-analyst/): A cybersecurity analyst protects computers, phones and networks from hackers and scams. Route: University. Time: 4 years (degree); skills can start now. UTME: English, Mathematics, Physics, One other Science subject.
+- [How to become a Computer Engineering Technologist in Nigeria](https://naija-career-compass-ai.vercel.app/careers/computer-hardware-engineer/): A computer engineering technologist builds, installs and repairs computers and networks. Route: Polytechnic or College. Time: ND 2 years and HND 2 years. UTME: English, Mathematics, Physics, Chemistry.
+- [How to become a Graphic Designer in Nigeria](https://naija-career-compass-ai.vercel.app/careers/graphic-designer/): A graphic designer creates logos, posters, packaging and social media designs that make messages clear. Route: Polytechnic or College. Time: ND 2 years; skills can start now.
+- [How to become an Agricultural Scientist in Nigeria](https://naija-career-compass-ai.vercel.app/careers/agronomist/): An agricultural scientist helps farmers grow more and better food through soil, seed and pest knowledge. Route: University. Time: 5 years. UTME: English, Chemistry, Biology or Agricultural Science, Mathematics or Physics.
+- [How to become a Food Scientist in Nigeria](https://naija-career-compass-ai.vercel.app/careers/food-scientist/): A food scientist makes sure packaged food is safe, tasty and lasts, and invents new products. Route: University. Time: 5 years (degree) or ND and HND. UTME: English, Chemistry, Mathematics or Physics, Biology or Agricultural Science.
+- [How to become a Microbiologist in Nigeria](https://naija-career-compass-ai.vercel.app/careers/microbiologist/): A microbiologist studies tiny living things like bacteria and fungi, for health, food and the environment. Route: University. Time: 4 years. UTME: English, Biology, Chemistry, Physics or Mathematics.
+- [How to become a Biochemist in Nigeria](https://naija-career-compass-ai.vercel.app/careers/biochemist/): A biochemist studies the chemistry inside living things, which leads to new medicines, tests and foods. Route: University. Time: 4 years. UTME: English, Biology, Chemistry, Physics or Mathematics.
+- [How to become a Geologist in Nigeria](https://naija-career-compass-ai.vercel.app/careers/geologist/): A geologist studies rocks and the Earth to find water, minerals and safe ground for building. Route: University. Time: 4 years. UTME: English, Two of Physics, Chemistry and Mathematics, Biology or Geography.
+- [How to become a Statistician in Nigeria](https://naija-career-compass-ai.vercel.app/careers/statistician/): A statistician designs surveys and makes sense of data so that decisions rest on evidence. Route: University. Time: 4 years (degree) or ND and HND. UTME: English, Mathematics, Two of Physics, Chemistry and Economics.
+- [How to become a Science Laboratory Technologist in Nigeria](https://naija-career-compass-ai.vercel.app/careers/science-laboratory-technologist/): A science laboratory technologist runs the equipment and tests in school, hospital and industrial laboratories. Route: Polytechnic or College. Time: ND 2 years and HND 2 years. UTME: English, Physics, Chemistry, Biology.
+- [How to become a Pilot in Nigeria](https://naija-career-compass-ai.vercel.app/careers/pilot/): A pilot flies aircraft and is responsible for the safety of everyone on board. Route: Polytechnic or College. Time: About 2 years of flight training, then experience.
+- [How to become a Seafarer or Marine Engineer in Nigeria](https://naija-career-compass-ai.vercel.app/careers/marine-engineer/): A marine engineer keeps a ship's engines and systems running at sea and in port. Route: Polytechnic or College. Time: About 4 years including sea-time. UTME: English, Mathematics, Physics, Chemistry.
+- [How to become a Hotel and Hospitality Manager in Nigeria](https://naija-career-compass-ai.vercel.app/careers/hospitality-manager/): A hospitality manager runs hotels, restaurants and events so that guests are well looked after. Route: Polytechnic or College. Time: ND 2 years and HND 2 years.
+- [How to become an Electrician in Nigeria](https://naija-career-compass-ai.vercel.app/careers/electrician/): An electrician installs and repairs the wiring, sockets and lights that bring power safely into buildings. Route: Skilled trade. Time: About 2 to 4 years.
+- [How to become a Solar Installer in Nigeria](https://naija-career-compass-ai.vercel.app/careers/solar-installer/): A solar installer fits panels, batteries and inverters so homes and shops get power from the sun. Route: Skilled trade. Time: About 1 to 3 years.
+- [How to become a Welder and Fabricator in Nigeria](https://naija-career-compass-ai.vercel.app/careers/welder/): A welder joins metal to make gates, tanks, frames and machine parts. Route: Skilled trade. Time: About 2 to 4 years.
+- [How to become a Plumber in Nigeria](https://naija-career-compass-ai.vercel.app/careers/plumber/): A plumber installs and repairs the pipes that bring clean water in and take waste water out. Route: Skilled trade. Time: About 2 to 3 years.
+- [How to become an Auto Mechanic in Nigeria](https://naija-career-compass-ai.vercel.app/careers/auto-mechanic/): An auto mechanic finds faults in vehicles and repairs engines, brakes and electronics. Route: Skilled trade. Time: About 3 to 4 years.
+- [How to become an AC and Refrigeration Technician in Nigeria](https://naija-career-compass-ai.vercel.app/careers/ac-refrigeration-technician/): An AC and refrigeration technician installs and repairs air conditioners, fridges and cold rooms. Route: Skilled trade. Time: About 2 to 3 years.
+- [How to become a Phone and Laptop Repair Technician in Nigeria](https://naija-career-compass-ai.vercel.app/careers/phone-repair-technician/): A repair technician fixes screens, batteries, charging ports and software problems on phones and laptops. Route: Skilled trade. Time: About 1 to 2 years.
+- [How to become a Fashion Designer and Tailor in Nigeria](https://naija-career-compass-ai.vercel.app/careers/fashion-designer/): A fashion designer creates and sews clothes that fit well and look good. Route: Skilled trade. Time: About 1 to 3 years.
+- [How to become a Hairstylist in Nigeria](https://naija-career-compass-ai.vercel.app/careers/hairstylist/): A hairstylist braids, styles and cares for hair and scalp. Route: Skilled trade. Time: About 1 to 2 years.
+- [How to become a Barber in Nigeria](https://naija-career-compass-ai.vercel.app/careers/barber/): A barber cuts and shapes hair and beards cleanly and safely. Route: Skilled trade. Time: About 1 to 2 years.
+- [How to become a Makeup Artist in Nigeria](https://naija-career-compass-ai.vercel.app/careers/makeup-artist/): A makeup artist prepares people for weddings, events, film and photos. Route: Skilled trade. Time: About 6 months to 2 years.
+- [How to become a Chef and Caterer in Nigeria](https://naija-career-compass-ai.vercel.app/careers/chef/): A chef plans and cooks food for restaurants, hotels and events. Route: Skilled trade. Time: About 1 to 3 years.
+- [How to become a Baker in Nigeria](https://naija-career-compass-ai.vercel.app/careers/baker/): A baker makes bread, cakes and pastries, measuring carefully every time. Route: Skilled trade. Time: About 1 to 2 years.
+- [How to become a Carpenter and Furniture Maker in Nigeria](https://naija-career-compass-ai.vercel.app/careers/carpenter/): A carpenter builds furniture, doors, roofs and cabinets from wood. Route: Skilled trade. Time: About 2 to 4 years.
+- [How to become a Bricklayer and Mason in Nigeria](https://naija-career-compass-ai.vercel.app/careers/bricklayer/): A bricklayer builds walls and foundations with blocks, bricks and concrete. Route: Skilled trade. Time: About 2 to 3 years.
+- [How to become a Tiler in Nigeria](https://naija-career-compass-ai.vercel.app/careers/tiler/): A tiler lays floor and wall tiles so that surfaces are level, waterproof and beautiful. Route: Skilled trade. Time: About 1 to 2 years.
+- [How to become a Painter and Decorator in Nigeria](https://naija-career-compass-ai.vercel.app/careers/painter/): A painter prepares and paints buildings, and advises on colours and finishes. Route: Skilled trade. Time: About 1 to 2 years.
+- [How to become a Photographer and Videographer in Nigeria](https://naija-career-compass-ai.vercel.app/careers/photographer/): A photographer or videographer captures events, products and stories in pictures and film. Route: Skilled trade. Time: About 1 to 2 years.
+- [How to become a Shoemaker and Leather Worker in Nigeria](https://naija-career-compass-ai.vercel.app/careers/shoemaker/): A shoemaker designs and makes shoes, sandals, bags and belts. Route: Skilled trade. Time: About 1 to 3 years.
+- [How to become a CCTV and Security Systems Installer in Nigeria](https://naija-career-compass-ai.vercel.app/careers/cctv-installer/): A security systems installer fits cameras, alarms and access control for homes and businesses. Route: Skilled trade. Time: About 1 to 2 years.
+- [How to become a Musician or Sound Engineer in Nigeria](https://naija-career-compass-ai.vercel.app/careers/musician-sound-engineer/): A musician performs or writes music; a sound engineer records and mixes it so it sounds right. Route: Skilled trade. Time: Skills grow over many years.
+- [How to become an Athlete or Sports Coach in Nigeria](https://naija-career-compass-ai.vercel.app/careers/sports-coach/): An athlete competes; a coach trains others to play well and stay fit and safe. Route: Polytechnic or College. Time: 3 to 4 years for NCE or degree; badges take less.
+
+## Tools
+- [What can I become with my subjects?](https://naija-career-compass-ai.vercel.app/subjects/): tick your subjects, see matching careers
+- [All careers by route](https://naija-career-compass-ai.vercel.app/careers/)
+
+## About
+Naija Career Compass AI was built by students of the ByteBusters coding club (Generative AI Team) at Yewa College, Ilaro, Ogun State, Nigeria, with guidance from the ByteBusters Centre Lead. ByteBusters is a programme of Odu'a Investment Foundation. Free, no sign-up. About page: https://naija-career-compass-ai.vercel.app/about/
+
+## Questions and answers (also at https://naija-career-compass-ai.vercel.app/faq/)
+### How do I choose a career in Nigeria as a secondary school student?
+Start with what you enjoy, what you are naturally good at and where you like to work. Naija Career Compass AI turns those answers into 3 careers, each with the subjects to focus on and a real Nigerian route: university through JAMB/UTME, polytechnic (ND/HND) or college of education (NCE), or a skilled trade through NABTEB or an apprenticeship.
+
+### What JAMB (UTME) subjects do I need for Medicine (to become a doctor)?
+English is always one of the four UTME subjects. For Medicine (to become a doctor), the other three are usually Physics, Chemistry, Biology. 6 years of study, plus 1 year housemanship. Always confirm in the current JAMB brochure.
+
+### What JAMB (UTME) subjects do I need for Nursing?
+English is always one of the four UTME subjects. For Nursing, the other three are usually Physics, Chemistry, Biology. 5 years at university, or about 3 to 4 years at a College of Nursing. Always confirm in the current JAMB brochure.
+
+### What JAMB (UTME) subjects do I need for Law?
+English is always one of the four UTME subjects. For Law, the other three are usually Any three Arts or Social Science subjects, for example Literature in English, Government, History, Economics or CRS/IRS (most faculties also want a credit in Literature in English at WAEC/NECO). Always confirm in the current JAMB brochure.
+
+### What JAMB (UTME) subjects do I need for Computer Science (to become a software developer)?
+English is always one of the four UTME subjects. For Computer Science (to become a software developer), the other three are usually Mathematics, Physics, One other Science subject. 4 years (degree); skills can start now. Always confirm in the current JAMB brochure.
+
+### What is the difference between university, polytechnic and college of education?
+Universities award degrees such as BSc or BEng. Polytechnics award the National Diploma (ND) and Higher National Diploma (HND), with more hands-on training. Colleges of education award the NCE, mainly for people who want to teach. Admission into all three is through JAMB.
+
+### Can I go to university after ND or NCE?
+Yes. Holders of ND, NCE and some other certificates can apply to university through JAMB Direct Entry, often into 200 level. Each university sets its own grade and subject rules, so check the current JAMB brochure and the university's website.
+
+### What can I become if I am in the Arts or Commercial class?
+Many careers welcome Arts and Commercial students, for example lawyer, journalist, accountant, banker, economist, teacher and entrepreneur. Use "What can I become with my subjects?" to see careers that match the subjects you take.
+
+### What is NABTEB?
+NABTEB is the National Business and Technical Examinations Board. It runs exams for technical and business subjects, and its certificates (including Modular Trade Certificates) are a recognised route into skilled trades and further study.
+
+### Are skilled trades a good career in Nigeria?
+Yes. Trades such as electrical installation, solar, welding, tailoring and catering are in steady demand. Every result includes at least one skilled trade, and trade cards link to Apprentice Pathways Explorer for the full training path.
+
+### How do I talk to my parents about a career?
+Press 'Talk to my parents' on any career card. The AI writes a short, respectful message in your parents' language that explains the career, the route into it and asks for their advice, plus answers to common worries. You can copy it or send it on WhatsApp.
+
+### Is Naija Career Compass AI free and private?
+Yes. There is no sign-up and nothing is saved. A privacy filter removes names, ages, phone numbers, emails and ID numbers before anything reaches the AI.
+
+### Who built Naija Career Compass AI?
+Students of the ByteBusters coding club (Generative AI Team) at Yewa College, Ilaro, Ogun State, built it. ByteBusters is a programme of Odu'a Investment Foundation.
+
+## Every career in full
+### Medical Doctor
+A medical doctor finds out what is making people sick and treats them, in hospitals, clinics and communities. Route: University. UTME subjects: English plus Physics, Chemistry, Biology. How long: 6 years of study, plus 1 year housemanship. Ways in: Get 5 credits in WAEC or NECO, including English, Maths, Physics, Chemistry and Biology, in not more than two sittings (many schools want one). Write UTME (JAMB) and the university's own screening for Medicine and Surgery (MBBS). Study for 6 years, then do a 1-year housemanship in a hospital. Do NYSC, then work, or train further to become a specialist.
+Guide: https://naija-career-compass-ai.vercel.app/careers/medical-doctor/
+
+### Pharmacist
+A pharmacist is the expert on medicines: how they are made, how they work and how to use them safely. Route: University. UTME subjects: English plus Physics, Chemistry, Biology. How long: 5 to 6 years, plus 1 year internship. Ways in: Get 5 credits including English, Maths, Physics, Chemistry and Biology. Write UTME and gain admission to study Pharmacy. Study for 5 years (B.Pharm) or 6 years (PharmD), then do a 1-year internship. Do NYSC, then work in a hospital, community pharmacy, industry or research.
+Guide: https://naija-career-compass-ai.vercel.app/careers/pharmacist/
+
+### Nurse
+A nurse cares for patients every day: giving treatment, watching their progress and comforting families. Route: University. UTME subjects: English plus Physics, Chemistry, Biology. How long: 5 years at university, or about 3 to 4 years at a College of Nursing. Ways in: Get 5 credits including English, Maths, Physics, Chemistry and Biology. Choose a route: a university degree in Nursing Science (UTME), or an approved College of Nursing Sciences. Pass the professional exams and register as a nurse. Work in a hospital or clinic, or specialise (midwifery, theatre, paediatrics).
+Guide: https://naija-career-compass-ai.vercel.app/careers/nurse/
+
+### Medical Laboratory Scientist
+A medical laboratory scientist tests blood and other samples so doctors know exactly what is wrong. Route: University. UTME subjects: English plus Physics, Chemistry, Biology. How long: 5 years, plus 1 year internship. Ways in: Get 5 credits including English, Maths, Physics, Chemistry and Biology. Write UTME and gain admission for Medical Laboratory Science (BMLS). Study for 5 years, then do a 1-year internship. Work in hospital, research or public-health laboratories.
+Guide: https://naija-career-compass-ai.vercel.app/careers/medical-laboratory-scientist/
+
+### Physiotherapist
+A physiotherapist helps people move again after injury, stroke or surgery, using exercise and hands-on treatment. Route: University. UTME subjects: English plus Physics, Chemistry, Biology. How long: 5 to 6 years, plus 1 year internship. Ways in: Get 5 credits including English, Maths, Physics, Chemistry and Biology. Write UTME and gain admission to study Physiotherapy. Study for 5 to 6 years, then do a 1-year internship. Work in hospitals, sports teams or private practice.
+Guide: https://naija-career-compass-ai.vercel.app/careers/physiotherapist/
+
+### Dentist
+A dentist looks after teeth, gums and the mouth, from check-ups to surgery. Route: University. UTME subjects: English plus Physics, Chemistry, Biology. How long: 6 years, plus 1 year housemanship. Ways in: Get 5 credits including English, Maths, Physics, Chemistry and Biology. Write UTME and gain admission to study Dentistry (BDS). Study for 6 years, then do a 1-year housemanship. Do NYSC, then practise or specialise.
+Guide: https://naija-career-compass-ai.vercel.app/careers/dentist/
+
+### Optometrist
+An optometrist tests eyesight, prescribes glasses and spots eye problems early. Route: University. UTME subjects: English plus Physics, Chemistry, Biology. How long: 6 years, plus 1 year internship. Ways in: Get 5 credits including English, Maths, Physics, Chemistry and Biology. Write UTME and gain admission to study Optometry (OD). Study for 6 years, then do a 1-year internship. Work in eye clinics and hospitals, or open a practice.
+Guide: https://naija-career-compass-ai.vercel.app/careers/optometrist/
+
+### Radiographer
+A radiographer takes X-rays, scans and other images that let doctors see inside the body. Route: University. UTME subjects: English plus Physics, Chemistry, Biology. How long: 5 years, plus 1 year internship. Ways in: Get 5 credits including English, Maths, Physics, Chemistry and Biology. Write UTME and gain admission to study Radiography. Study for 5 years, then do a 1-year internship. Work in hospitals and diagnostic centres.
+Guide: https://naija-career-compass-ai.vercel.app/careers/radiographer/
+
+### Veterinary Doctor
+A veterinary doctor keeps animals healthy: pets, poultry, cattle and wildlife. This also protects people's food. Route: University. UTME subjects: English plus Physics, Chemistry, Biology. How long: 6 years. Ways in: Get 5 credits including English, Maths, Physics, Chemistry and Biology. Write UTME and gain admission to study Veterinary Medicine (DVM). Study for 6 years. Do NYSC, then work in clinics, farms, government or industry.
+Guide: https://naija-career-compass-ai.vercel.app/careers/veterinary-doctor/
+
+### Nutritionist or Dietitian
+A nutritionist or dietitian plans what people should eat to stay healthy or recover from illness. Route: University. UTME subjects: English plus Chemistry, Biology, Mathematics or Physics. How long: 4 to 5 years. Ways in: Get 5 credits including English, Maths, Chemistry and Biology. Write UTME and gain admission to study Nutrition and Dietetics. Study for 4 to 5 years; dietitians also do an internship. Work in hospitals, schools, food companies or community programmes.
+Guide: https://naija-career-compass-ai.vercel.app/careers/nutritionist-dietitian/
+
+### Community Health Extension Worker (CHEW)
+A community health worker gives basic treatment, immunisation and health teaching in towns and villages, often at a primary health centre. Route: Polytechnic or College. How long: About 2 to 3 years. Ways in: Get credits in English, Maths, Biology and Chemistry (schools differ; check theirs). Apply to a College or School of Health Technology. Study for about 2 to 3 years and pass the board exam. Work in primary health centres; later you can study further for a degree.
+Guide: https://naija-career-compass-ai.vercel.app/careers/community-health-worker/
+
+### Pharmacy Technician
+A pharmacy technician works with a pharmacist to prepare and give out medicines correctly. Route: Polytechnic or College. How long: About 3 years. Ways in: Get credits in English, Maths, Chemistry and Biology. Apply to an approved College of Health Technology for the Pharmacy Technician programme. Study for about 3 years and pass the council exam. Work in hospitals and pharmacies; you can later study Pharmacy.
+Guide: https://naija-career-compass-ai.vercel.app/careers/pharmacy-technician/
+
+### Lawyer
+A lawyer advises people and organisations about the law and speaks for them in court. Route: University. UTME subjects: English plus Any three Arts or Social Science subjects, for example Literature in English, Government, History, Economics or CRS/IRS (most faculties also want a credit in Literature in English at WAEC/NECO). How long: 5 years, plus about 1 year at the Nigerian Law School. Ways in: Get 5 credits including English, Maths and Literature in English. Write UTME and gain admission to study Law (LL.B). Study for 5 years, then attend the Nigerian Law School for about 1 year. Get called to the Bar, do NYSC, then practise.
+Guide: https://naija-career-compass-ai.vercel.app/careers/lawyer/
+
+### Accountant
+An accountant records and checks money so that businesses, schools and governments know what they have and spend it properly. Route: University. UTME subjects: English plus Mathematics, Economics, One other Social Science subject. How long: 4 years at university; professional exams are extra. Ways in: Get 5 credits including English, Maths and Economics. Choose a route: a university degree (UTME), or ND then HND in Accountancy at a polytechnic. Write professional exams to become a chartered accountant. Work in companies, banks, audit firms or government.
+Guide: https://naija-career-compass-ai.vercel.app/careers/accountant/
+
+### Economist
+An economist studies how people, businesses and countries use money and resources, and advises on decisions like prices and jobs. Route: University. UTME subjects: English plus Mathematics, Economics, Government, Geography or another Social Science subject. How long: 4 years. Ways in: Get 5 credits including English, Maths and Economics. Write UTME and gain admission to study Economics. Study for 4 years. Work in banks, research, government or international organisations.
+Guide: https://naija-career-compass-ai.vercel.app/careers/economist/
+
+### Banker
+A banker helps people and businesses save, borrow and move money safely. Route: University. UTME subjects: English plus Mathematics, Economics, One other Social Science subject. How long: 4 years (degree) or ND and HND. Ways in: Get 5 credits including English, Maths and Economics. Study Banking and Finance, Accounting, Economics or a related course (university or polytechnic). Do NYSC, then apply to banks; professional exams help you grow. Grow into operations, credit, technology or management.
+Guide: https://naija-career-compass-ai.vercel.app/careers/banker/
+
+### Entrepreneur (Business Owner)
+An entrepreneur spots a problem people will pay to solve, and builds a business around it. Route: Polytechnic or College. How long: It is a lifelong learning path. Ways in: There is no single route: learn a skill or a field first, so you have something real to sell. Study Business Administration or Entrepreneurship (polytechnic or university), or learn through an apprenticeship. Start small, keep records, and register the business with the Corporate Affairs Commission when it grows. Find a mentor who already runs a business.
+Guide: https://naija-career-compass-ai.vercel.app/careers/entrepreneur/
+
+### Teacher
+A teacher helps learners understand subjects and grow in character. Every other career starts with one. Route: University. UTME subjects: English plus Two subjects you want to teach, One other relevant subject. How long: 3 years (NCE) or 4 years (B.Ed). Ways in: Get 5 credits including English and Maths (and the subjects you want to teach). Choose a route: NCE at a College of Education (3 years), or B.Ed at a university (4 years). Register as a professional teacher. Teach, then grow into head of department, principal or education specialist.
+Guide: https://naija-career-compass-ai.vercel.app/careers/teacher/
+
+### Psychologist or Counsellor
+A psychologist or counsellor studies how people think and feel, and helps them through difficult times and decisions. Route: University. UTME subjects: English plus Any three subjects (Biology helps). How long: 4 years, more for clinical practice. Ways in: Get 5 credits including English, Maths and usually Biology. Write UTME and study Psychology, or Guidance and Counselling. Study for 4 years; clinical work needs a master's degree. Work in schools, hospitals, companies or NGOs.
+Guide: https://naija-career-compass-ai.vercel.app/careers/psychologist/
+
+### Social Worker
+A social worker supports children, families and vulnerable people to get help and stay safe. Route: University. UTME subjects: English plus Any three Arts or Social Science subjects. How long: 4 years. Ways in: Get 5 credits including English and Maths. Write UTME and study Social Work or Sociology. Study for 4 years, with field placements. Work with government, hospitals, schools or NGOs.
+Guide: https://naija-career-compass-ai.vercel.app/careers/social-worker/
+
+### Journalist or Broadcaster
+A journalist finds out what is true and tells the public clearly, on radio, TV, in print or online. Route: University. UTME subjects: English plus Any three Arts or Social Science subjects, for example Literature in English, Government, Economics or History. How long: 4 years (degree) or ND and HND. Ways in: Get 5 credits including English and Maths. Choose a route: Mass Communication at a university (UTME) or polytechnic (ND/HND). Build a portfolio: school press club, blog, campus radio. Work in media houses or as an independent creator.
+Guide: https://naija-career-compass-ai.vercel.app/careers/journalist/
+
+### Civil Engineer
+A civil engineer designs and supervises roads, bridges, buildings, dams and water systems. Route: University. UTME subjects: English plus Mathematics, Physics, Chemistry. How long: 5 years. Ways in: Get 5 credits including English, Maths, Physics and Chemistry. Write UTME and study Civil Engineering (B.Eng), or take ND then HND at a polytechnic. Study for 5 years, with industrial training (SIWES). Do NYSC, work under a registered engineer, then register.
+Guide: https://naija-career-compass-ai.vercel.app/careers/civil-engineer/
+
+### Mechanical Engineer
+A mechanical engineer designs and maintains machines: engines, factory lines, generators and cooling systems. Route: University. UTME subjects: English plus Mathematics, Physics, Chemistry. How long: 5 years. Ways in: Get 5 credits including English, Maths, Physics and Chemistry. Write UTME and study Mechanical Engineering, or take ND then HND. Study for 5 years, with industrial training. Work in manufacturing, energy, automotive or maintenance.
+Guide: https://naija-career-compass-ai.vercel.app/careers/mechanical-engineer/
+
+### Electrical and Electronics Engineer
+An electrical engineer designs power systems, electronics and communication networks. Route: University. UTME subjects: English plus Mathematics, Physics, Chemistry. How long: 5 years. Ways in: Get 5 credits including English, Maths, Physics and Chemistry. Write UTME and study Electrical and Electronics Engineering, or take ND then HND. Study for 5 years, with industrial training. Work in power, telecoms, electronics or renewable energy.
+Guide: https://naija-career-compass-ai.vercel.app/careers/electrical-engineer/
+
+### Chemical Engineer
+A chemical engineer turns raw materials into useful products such as fuel, food, plastics, soap and medicine, at factory scale. Route: University. UTME subjects: English plus Mathematics, Physics, Chemistry. How long: 5 years. Ways in: Get 5 credits including English, Maths, Physics and Chemistry. Write UTME and study Chemical Engineering. Study for 5 years, with industrial training. Work in oil and gas, food, cement, pharmaceuticals or water treatment.
+Guide: https://naija-career-compass-ai.vercel.app/careers/chemical-engineer/
+
+### Petroleum and Gas Engineer
+A petroleum engineer works out how to find and bring up oil and gas safely and efficiently. Route: University. UTME subjects: English plus Mathematics, Physics, Chemistry. How long: 5 years. Ways in: Get 5 credits including English, Maths, Physics and Chemistry. Write UTME and study Petroleum or Gas Engineering. Study for 5 years, with industrial training. Work in energy companies; skills also transfer to gas and geothermal energy.
+Guide: https://naija-career-compass-ai.vercel.app/careers/petroleum-engineer/
+
+### Architect
+An architect designs buildings that are safe, useful and beautiful. Route: University. UTME subjects: English plus Mathematics, Physics, Chemistry, Geography or Fine Art. How long: About 6 years of study. Ways in: Get 5 credits including English, Maths and Physics (Technical Drawing or Fine Art helps). Write UTME and study Architecture. Complete a first degree (4 years) and a master's degree (2 years). Work under a registered architect, pass the professional exam and register.
+Guide: https://naija-career-compass-ai.vercel.app/careers/architect/
+
+### Quantity Surveyor
+A quantity surveyor works out what a building project will cost and keeps it within budget. Route: University. UTME subjects: English plus Mathematics, Physics, Economics, Geography or Chemistry. How long: About 5 years. Ways in: Get 5 credits including English, Maths and Physics. Study Quantity Surveying at a university (UTME) or polytechnic (ND/HND). Study for about 5 years, with industrial training. Work with construction firms, consultants or government, then register.
+Guide: https://naija-career-compass-ai.vercel.app/careers/quantity-surveyor/
+
+### Estate Surveyor and Valuer
+An estate surveyor values, manages and sells land and buildings. Route: University. UTME subjects: English plus Mathematics, Economics, One other subject. How long: About 5 years. Ways in: Get 5 credits including English, Maths and Economics. Study Estate Management at a university or polytechnic. Study for about 5 years. Work in property firms, banks or government, then register.
+Guide: https://naija-career-compass-ai.vercel.app/careers/estate-surveyor/
+
+### Land Surveyor (Surveying and Geoinformatics)
+A land surveyor measures land accurately and makes the maps used for roads, buildings and boundaries. Route: Polytechnic or College. UTME subjects: English plus Mathematics, Physics, Geography or Chemistry. How long: ND 2 years and HND 2 years, or a 5-year degree. Ways in: Get 5 credits including English, Maths and Physics. Study Surveying and Geoinformatics at a polytechnic (ND/HND) or university. Do field practice and industrial training. Work with survey firms, construction or government, then register.
+Guide: https://naija-career-compass-ai.vercel.app/careers/land-surveyor/
+
+### Building Technologist (Builder)
+A builder manages the actual construction on site so that the building matches the drawings and is safe. Route: Polytechnic or College. UTME subjects: English plus Mathematics, Physics, Chemistry. How long: ND 2 years and HND 2 years, or a 5-year degree. Ways in: Get 5 credits including English, Maths and Physics. Study Building Technology at a polytechnic (ND/HND) or university. Do industrial training on real sites. Work as a site supervisor or project manager, then register.
+Guide: https://naija-career-compass-ai.vercel.app/careers/building-technologist/
+
+### Software Developer
+A software developer writes the code behind apps, websites and games. Route: University. UTME subjects: English plus Mathematics, Physics, One other Science subject. How long: 4 years (degree); skills can start now. Ways in: Get 5 credits including English, Maths and Physics. Study Computer Science or Software Engineering (university or polytechnic). Self-study and bootcamps also work if you build real projects. Build a portfolio: small apps, a website, school projects. Apply for internships and junior roles, or freelance.
+Guide: https://naija-career-compass-ai.vercel.app/careers/software-developer/
+
+### Data Analyst
+A data analyst turns numbers into answers that help organisations decide what to do. Route: University. UTME subjects: English plus Mathematics, Two of Physics, Chemistry and Economics. How long: 4 years (degree); skills can start now. Ways in: Get 5 credits including English and Maths. Study Statistics, Computer Science, Economics or Mathematics. Learn spreadsheets, then a tool such as SQL or Python. Build small projects with real public data.
+Guide: https://naija-career-compass-ai.vercel.app/careers/data-analyst/
+
+### Cybersecurity Analyst
+A cybersecurity analyst protects computers, phones and networks from hackers and scams. Route: University. UTME subjects: English plus Mathematics, Physics, One other Science subject. How long: 4 years (degree); skills can start now. Ways in: Get 5 credits including English, Maths and Physics. Study Cybersecurity or Computer Science. Practise legally on training platforms and earn entry certificates. Start in IT support or a security operations team.
+Guide: https://naija-career-compass-ai.vercel.app/careers/cybersecurity-analyst/
+
+### Computer Engineering Technologist
+A computer engineering technologist builds, installs and repairs computers and networks. Route: Polytechnic or College. UTME subjects: English plus Mathematics, Physics, Chemistry. How long: ND 2 years and HND 2 years. Ways in: Get 5 credits including English, Maths and Physics. Study Computer Engineering at a polytechnic (ND/HND) or university. Do industrial training with an IT firm. Work in IT support, networking or repairs; certificates help.
+Guide: https://naija-career-compass-ai.vercel.app/careers/computer-hardware-engineer/
+
+### Graphic Designer
+A graphic designer creates logos, posters, packaging and social media designs that make messages clear. Route: Polytechnic or College. How long: ND 2 years; skills can start now. Ways in: Get credits in English and Maths; Fine Art helps. Study Graphic Design or Art at a polytechnic or university, or learn through courses and practice. Build a portfolio of 8 to 10 strong pieces. Freelance, or join a studio, printer or media team.
+Guide: https://naija-career-compass-ai.vercel.app/careers/graphic-designer/
+
+### Agricultural Scientist
+An agricultural scientist helps farmers grow more and better food through soil, seed and pest knowledge. Route: University. UTME subjects: English plus Chemistry, Biology or Agricultural Science, Mathematics or Physics. How long: 5 years. Ways in: Get 5 credits including English, Maths, Chemistry and Biology or Agricultural Science. Study Agriculture at a university or a College of Agriculture. Study for 5 years, including a farm practical year. Work in farms, research, extension or agribusiness.
+Guide: https://naija-career-compass-ai.vercel.app/careers/agronomist/
+
+### Food Scientist
+A food scientist makes sure packaged food is safe, tasty and lasts, and invents new products. Route: University. UTME subjects: English plus Chemistry, Mathematics or Physics, Biology or Agricultural Science. How long: 5 years (degree) or ND and HND. Ways in: Get 5 credits including English, Maths, Chemistry and Biology. Study Food Science and Technology (university or polytechnic). Do industrial training in a food factory. Work in food companies, quality control or regulation.
+Guide: https://naija-career-compass-ai.vercel.app/careers/food-scientist/
+
+### Microbiologist
+A microbiologist studies tiny living things like bacteria and fungi, for health, food and the environment. Route: University. UTME subjects: English plus Biology, Chemistry, Physics or Mathematics. How long: 4 years. Ways in: Get 5 credits including English, Maths, Biology and Chemistry. Write UTME and study Microbiology. Study for 4 years. Work in labs, breweries, food and drug companies, or research.
+Guide: https://naija-career-compass-ai.vercel.app/careers/microbiologist/
+
+### Biochemist
+A biochemist studies the chemistry inside living things, which leads to new medicines, tests and foods. Route: University. UTME subjects: English plus Biology, Chemistry, Physics or Mathematics. How long: 4 years. Ways in: Get 5 credits including English, Maths, Biology and Chemistry. Write UTME and study Biochemistry. Study for 4 years. Work in research, industry, hospitals or teaching.
+Guide: https://naija-career-compass-ai.vercel.app/careers/biochemist/
+
+### Geologist
+A geologist studies rocks and the Earth to find water, minerals and safe ground for building. Route: University. UTME subjects: English plus Two of Physics, Chemistry and Mathematics, Biology or Geography. How long: 4 years. Ways in: Get 5 credits including English, Maths, Physics and Chemistry. Write UTME and study Geology. Study for 4 years, with field mapping. Work in mining, water, oil and gas, or construction.
+Guide: https://naija-career-compass-ai.vercel.app/careers/geologist/
+
+### Statistician
+A statistician designs surveys and makes sense of data so that decisions rest on evidence. Route: University. UTME subjects: English plus Mathematics, Two of Physics, Chemistry and Economics. How long: 4 years (degree) or ND and HND. Ways in: Get 5 credits including English and Maths. Study Statistics at a university or polytechnic. Learn data tools as you study. Work in government statistics, banks, health or research.
+Guide: https://naija-career-compass-ai.vercel.app/careers/statistician/
+
+### Science Laboratory Technologist
+A science laboratory technologist runs the equipment and tests in school, hospital and industrial laboratories. Route: Polytechnic or College. UTME subjects: English plus Physics, Chemistry, Biology. How long: ND 2 years and HND 2 years. Ways in: Get 5 credits including English, Maths and science subjects. Study Science Laboratory Technology at a polytechnic (ND/HND). Do industrial training in a working lab. Work in labs across education, health and industry.
+Guide: https://naija-career-compass-ai.vercel.app/careers/science-laboratory-technologist/
+
+### Pilot
+A pilot flies aircraft and is responsible for the safety of everyone on board. Route: Polytechnic or College. How long: About 2 years of flight training, then experience. Ways in: Get 5 credits including English, Maths and Physics. Train at an approved flying school, such as the Nigerian College of Aviation Technology in Zaria. Pass medical checks, flying hours and licence exams. Build experience and move to bigger aircraft.
+Guide: https://naija-career-compass-ai.vercel.app/careers/pilot/
+
+### Seafarer or Marine Engineer
+A marine engineer keeps a ship's engines and systems running at sea and in port. Route: Polytechnic or College. UTME subjects: English plus Mathematics, Physics, Chemistry. How long: About 4 years including sea-time. Ways in: Get 5 credits including English, Maths, Physics and Chemistry. Train at a maritime institution, such as the Maritime Academy of Nigeria in Oron. Complete sea-time and certificate exams. Work on ships, in ports or offshore.
+Guide: https://naija-career-compass-ai.vercel.app/careers/marine-engineer/
+
+### Hotel and Hospitality Manager
+A hospitality manager runs hotels, restaurants and events so that guests are well looked after. Route: Polytechnic or College. How long: ND 2 years and HND 2 years. Ways in: Get credits in English, Maths and three other subjects. Study Hospitality Management or Tourism at a polytechnic (ND/HND). Do industrial training in a hotel. Grow from front desk or kitchen to supervisor and manager.
+Guide: https://naija-career-compass-ai.vercel.app/careers/hospitality-manager/
+
+### Electrician
+An electrician installs and repairs the wiring, sockets and lights that bring power safely into buildings. Route: Skilled trade. How long: About 2 to 4 years. Ways in: Finish JSS3 or SS3 if you can: reading, writing and maths make you a better electrician. Learn under a master (apprenticeship) or at a technical college or skills centre. Technical colleges teach Electrical Installation and Maintenance Work. Get a certificate that proves your skill: NABTEB, a Trade Test, or a National Skills Qualification (NSQ). Start with small paid jobs, keep photos of your work, and grow into your own shop or a company job.
+Guide: https://naija-career-compass-ai.vercel.app/careers/electrician/
+
+### Solar Installer
+A solar installer fits panels, batteries and inverters so homes and shops get power from the sun. Route: Skilled trade. How long: About 1 to 3 years. Ways in: Finish JSS3 or SS3 if you can: reading, writing and maths make you a better installer. Learn under a master (apprenticeship) or at a technical college or skills centre. Many learn electrical work first, then take a solar course. Get a certificate that proves your skill: NABTEB, a Trade Test, or a National Skills Qualification (NSQ). Start with small paid jobs, keep photos of your work, and grow into your own shop or a company job.
+Guide: https://naija-career-compass-ai.vercel.app/careers/solar-installer/
+
+### Welder and Fabricator
+A welder joins metal to make gates, tanks, frames and machine parts. Route: Skilled trade. How long: About 2 to 4 years. Ways in: Finish JSS3 or SS3 if you can: reading, writing and maths make you a better welder. Learn under a master (apprenticeship) or at a technical college or skills centre. Get a certificate that proves your skill: NABTEB, a Trade Test, or a National Skills Qualification (NSQ). Start with small paid jobs, keep photos of your work, and grow into your own shop or a company job.
+Guide: https://naija-career-compass-ai.vercel.app/careers/welder/
+
+### Plumber
+A plumber installs and repairs the pipes that bring clean water in and take waste water out. Route: Skilled trade. How long: About 2 to 3 years. Ways in: Finish JSS3 or SS3 if you can: reading, writing and maths make you a better plumber. Learn under a master (apprenticeship) or at a technical college or skills centre. Get a certificate that proves your skill: NABTEB, a Trade Test, or a National Skills Qualification (NSQ). Start with small paid jobs, keep photos of your work, and grow into your own shop or a company job.
+Guide: https://naija-career-compass-ai.vercel.app/careers/plumber/
+
+### Auto Mechanic
+An auto mechanic finds faults in vehicles and repairs engines, brakes and electronics. Route: Skilled trade. How long: About 3 to 4 years. Ways in: Finish JSS3 or SS3 if you can: reading, writing and maths make you a better mechanic. Learn under a master (apprenticeship) or at a technical college or skills centre. Modern cars use computers, so learn diagnostics too. Get a certificate that proves your skill: NABTEB, a Trade Test, or a National Skills Qualification (NSQ). Start with small paid jobs, keep photos of your work, and grow into your own shop or a company job.
+Guide: https://naija-career-compass-ai.vercel.app/careers/auto-mechanic/
+
+### AC and Refrigeration Technician
+An AC and refrigeration technician installs and repairs air conditioners, fridges and cold rooms. Route: Skilled trade. How long: About 2 to 3 years. Ways in: Finish JSS3 or SS3 if you can: reading, writing and maths make you a better technician. Learn under a master (apprenticeship) or at a technical college or skills centre. Get a certificate that proves your skill: NABTEB, a Trade Test, or a National Skills Qualification (NSQ). Start with small paid jobs, keep photos of your work, and grow into your own shop or a company job.
+Guide: https://naija-career-compass-ai.vercel.app/careers/ac-refrigeration-technician/
+
+### Phone and Laptop Repair Technician
+A repair technician fixes screens, batteries, charging ports and software problems on phones and laptops. Route: Skilled trade. How long: About 1 to 2 years. Ways in: Finish JSS3 or SS3 if you can: reading, writing and maths make you a better technician. Learn under a master (apprenticeship) or at a technical college or skills centre. Get a certificate that proves your skill: NABTEB, a Trade Test, or a National Skills Qualification (NSQ). Start with small paid jobs, keep photos of your work, and grow into your own shop or a company job.
+Guide: https://naija-career-compass-ai.vercel.app/careers/phone-repair-technician/
+
+### Fashion Designer and Tailor
+A fashion designer creates and sews clothes that fit well and look good. Route: Skilled trade. How long: About 1 to 3 years. Ways in: Finish JSS3 or SS3 if you can: reading, writing and maths make you a better designer. Learn under a master (apprenticeship) or at a technical college or skills centre. Polytechnics also offer Fashion Design and Clothing Technology (ND/HND). Get a certificate that proves your skill: NABTEB, a Trade Test, or a National Skills Qualification (NSQ). Start with small paid jobs, keep photos of your work, and grow into your own shop or a company job.
+Guide: https://naija-career-compass-ai.vercel.app/careers/fashion-designer/
+
+### Hairstylist
+A hairstylist braids, styles and cares for hair and scalp. Route: Skilled trade. How long: About 1 to 2 years. Ways in: Finish JSS3 or SS3 if you can: reading, writing and maths make you a better stylist. Learn under a master (apprenticeship) or at a technical college or skills centre. Get a certificate that proves your skill: NABTEB, a Trade Test, or a National Skills Qualification (NSQ). Start with small paid jobs, keep photos of your work, and grow into your own shop or a company job.
+Guide: https://naija-career-compass-ai.vercel.app/careers/hairstylist/
+
+### Barber
+A barber cuts and shapes hair and beards cleanly and safely. Route: Skilled trade. How long: About 1 to 2 years. Ways in: Finish JSS3 or SS3 if you can: reading, writing and maths make you a better barber. Learn under a master (apprenticeship) or at a technical college or skills centre. Get a certificate that proves your skill: NABTEB, a Trade Test, or a National Skills Qualification (NSQ). Start with small paid jobs, keep photos of your work, and grow into your own shop or a company job.
+Guide: https://naija-career-compass-ai.vercel.app/careers/barber/
+
+### Makeup Artist
+A makeup artist prepares people for weddings, events, film and photos. Route: Skilled trade. How long: About 6 months to 2 years. Ways in: Finish JSS3 or SS3 if you can: reading, writing and maths make you a better artist. Learn under a master (apprenticeship) or at a technical college or skills centre. Get a certificate that proves your skill: NABTEB, a Trade Test, or a National Skills Qualification (NSQ). Start with small paid jobs, keep photos of your work, and grow into your own shop or a company job.
+Guide: https://naija-career-compass-ai.vercel.app/careers/makeup-artist/
+
+### Chef and Caterer
+A chef plans and cooks food for restaurants, hotels and events. Route: Skilled trade. How long: About 1 to 3 years. Ways in: Finish JSS3 or SS3 if you can: reading, writing and maths make you a better chef. Learn under a master (apprenticeship) or at a technical college or skills centre. Catering schools and polytechnics also teach this. Get a certificate that proves your skill: NABTEB, a Trade Test, or a National Skills Qualification (NSQ). Start with small paid jobs, keep photos of your work, and grow into your own shop or a company job.
+Guide: https://naija-career-compass-ai.vercel.app/careers/chef/
+
+### Baker
+A baker makes bread, cakes and pastries, measuring carefully every time. Route: Skilled trade. How long: About 1 to 2 years. Ways in: Finish JSS3 or SS3 if you can: reading, writing and maths make you a better baker. Learn under a master (apprenticeship) or at a technical college or skills centre. Get a certificate that proves your skill: NABTEB, a Trade Test, or a National Skills Qualification (NSQ). Start with small paid jobs, keep photos of your work, and grow into your own shop or a company job.
+Guide: https://naija-career-compass-ai.vercel.app/careers/baker/
+
+### Carpenter and Furniture Maker
+A carpenter builds furniture, doors, roofs and cabinets from wood. Route: Skilled trade. How long: About 2 to 4 years. Ways in: Finish JSS3 or SS3 if you can: reading, writing and maths make you a better carpenter. Learn under a master (apprenticeship) or at a technical college or skills centre. Get a certificate that proves your skill: NABTEB, a Trade Test, or a National Skills Qualification (NSQ). Start with small paid jobs, keep photos of your work, and grow into your own shop or a company job.
+Guide: https://naija-career-compass-ai.vercel.app/careers/carpenter/
+
+### Bricklayer and Mason
+A bricklayer builds walls and foundations with blocks, bricks and concrete. Route: Skilled trade. How long: About 2 to 3 years. Ways in: Finish JSS3 or SS3 if you can: reading, writing and maths make you a better bricklayer. Learn under a master (apprenticeship) or at a technical college or skills centre. Get a certificate that proves your skill: NABTEB, a Trade Test, or a National Skills Qualification (NSQ). Start with small paid jobs, keep photos of your work, and grow into your own shop or a company job.
+Guide: https://naija-career-compass-ai.vercel.app/careers/bricklayer/
+
+### Tiler
+A tiler lays floor and wall tiles so that surfaces are level, waterproof and beautiful. Route: Skilled trade. How long: About 1 to 2 years. Ways in: Finish JSS3 or SS3 if you can: reading, writing and maths make you a better tiler. Learn under a master (apprenticeship) or at a technical college or skills centre. Get a certificate that proves your skill: NABTEB, a Trade Test, or a National Skills Qualification (NSQ). Start with small paid jobs, keep photos of your work, and grow into your own shop or a company job.
+Guide: https://naija-career-compass-ai.vercel.app/careers/tiler/
+
+### Painter and Decorator
+A painter prepares and paints buildings, and advises on colours and finishes. Route: Skilled trade. How long: About 1 to 2 years. Ways in: Finish JSS3 or SS3 if you can: reading, writing and maths make you a better painter. Learn under a master (apprenticeship) or at a technical college or skills centre. Get a certificate that proves your skill: NABTEB, a Trade Test, or a National Skills Qualification (NSQ). Start with small paid jobs, keep photos of your work, and grow into your own shop or a company job.
+Guide: https://naija-career-compass-ai.vercel.app/careers/painter/
+
+### Photographer and Videographer
+A photographer or videographer captures events, products and stories in pictures and film. Route: Skilled trade. How long: About 1 to 2 years. Ways in: Finish JSS3 or SS3 if you can: reading, writing and maths make you a better photographer. Learn under a master (apprenticeship) or at a technical college or skills centre. A phone camera is enough to start learning. Get a certificate that proves your skill: NABTEB, a Trade Test, or a National Skills Qualification (NSQ). Start with small paid jobs, keep photos of your work, and grow into your own shop or a company job.
+Guide: https://naija-career-compass-ai.vercel.app/careers/photographer/
+
+### Shoemaker and Leather Worker
+A shoemaker designs and makes shoes, sandals, bags and belts. Route: Skilled trade. How long: About 1 to 3 years. Ways in: Finish JSS3 or SS3 if you can: reading, writing and maths make you a better shoemaker. Learn under a master (apprenticeship) or at a technical college or skills centre. Get a certificate that proves your skill: NABTEB, a Trade Test, or a National Skills Qualification (NSQ). Start with small paid jobs, keep photos of your work, and grow into your own shop or a company job.
+Guide: https://naija-career-compass-ai.vercel.app/careers/shoemaker/
+
+### CCTV and Security Systems Installer
+A security systems installer fits cameras, alarms and access control for homes and businesses. Route: Skilled trade. How long: About 1 to 2 years. Ways in: Finish JSS3 or SS3 if you can: reading, writing and maths make you a better installer. Learn under a master (apprenticeship) or at a technical college or skills centre. Basic electrical and networking skills come first. Get a certificate that proves your skill: NABTEB, a Trade Test, or a National Skills Qualification (NSQ). Start with small paid jobs, keep photos of your work, and grow into your own shop or a company job.
+Guide: https://naija-career-compass-ai.vercel.app/careers/cctv-installer/
+
+### Musician or Sound Engineer
+A musician performs or writes music; a sound engineer records and mixes it so it sounds right. Route: Skilled trade. How long: Skills grow over many years. Ways in: Learn an instrument, voice or music software seriously. Study Music at a university or college, or learn in a studio or church band under a mentor. Record and share your own work. Earn from performance, teaching, production or events.
+Guide: https://naija-career-compass-ai.vercel.app/careers/musician-sound-engineer/
+
+### Athlete or Sports Coach
+An athlete competes; a coach trains others to play well and stay fit and safe. Route: Polytechnic or College. How long: 3 to 4 years for NCE or degree; badges take less. Ways in: Train with a school team, club or academy. Study Human Kinetics or Physical and Health Education (NCE or degree), or take coaching courses from a sports federation. Gain coaching badges and first-aid training. Coach in schools, clubs or academies.
+Guide: https://naija-career-compass-ai.vercel.app/careers/sports-coach/

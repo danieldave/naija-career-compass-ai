@@ -12,11 +12,23 @@
 
 ## Pages
 - [Home and career tool](https://naija-career-compass-ai.vercel.app/)
+- [Career questions and answers](https://naija-career-compass-ai.vercel.app/faq/): JAMB subjects, university vs polytechnic, NABTEB and more
+- [About / who built this](https://naija-career-compass-ai.vercel.app/about/): made by ByteBusters students at Yewa College, Ilaro (Odu'a Investment Foundation)
+- [Full text for AI assistants](https://naija-career-compass-ai.vercel.app/llms-full.txt)
 
 ## Related ByteBusters tools
 - [Apprentice Pathways Explorer](https://apprentice-pathway-explorer.vercel.app/): Nigerian trades, training routes and apprenticeship tools
 - [Inflation Explainer](https://inflation-explainer.vercel.app/)
 - [Community Voice AI](https://community-voice-ai-ziry.vercel.app/)
+
+## Tools
+- [Class Mode](https://naija-career-compass-ai.vercel.app/class/): free class codes for teachers; students use the career form and teachers see anonymous totals of career families, routes and subjects (no names or answers stored)
+
+## Tools
+- [Class Mode](https://naija-career-compass-ai.vercel.app/class/): free class codes for teachers; students use the career form and teachers see anonymous totals of career families, routes and subjects (no names or answers stored)
+
+## Tools
+- [Class Mode](https://naija-career-compass-ai.vercel.app/class/): free class codes for teachers; students use the career form and teachers see anonymous totals of career families, routes and subjects (no names or answers stored)
 
 ## Tools
 - [Class Mode](https://naija-career-compass-ai.vercel.app/class/): free class codes for teachers; students use the career form and teachers see anonymous totals of career families, routes and subjects (no names or answers stored)

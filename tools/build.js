@@ -36,7 +36,12 @@ const ORG = { '@type': 'EducationalOrganization', '@id': URL_ + '/#org', name: S
 
 function page({ rel, title, description, h1, crumbs, body, schema }) {
   const url = URL_ + '/' + rel.replace(/index\.html$/, '');
-  if (title.length > 68) title = title.replace(/ \| Naija Career Compass$/, '');
+  // Google shows about 60 letters of a title
+  if (title.length > 60) title = title.replace(/ \| Naija Career Compass$/, '');
+  if (title.length > 60) title = title.replace(/\s*\([^)]*\)/g, '');
+  if (title.length > 60) title = title.replace(/^(How to become .*) in Nigeria$/, '$1');
+  for (let n = 58; title.length > 60 && n > 30; n -= 4) title = title.replace(/…$/, '').slice(0, n).replace(/\s\S*$/, '') + '…';
+  description = short(description);
   return `<!doctype html>
 <html lang="en-NG">
 <head>
@@ -53,6 +58,9 @@ function page({ rel, title, description, h1, crumbs, body, schema }) {
 <meta property="og:url" content="${url}">
 <meta property="og:image" content="${URL_}/images/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="${esc(title)}">
+<meta name="twitter:description" content="${esc(description)}">
+<meta name="twitter:image" content="${URL_}/images/og-image.png">
 <meta name="theme-color" content="#2A1B6E">
 <link rel="icon" href="/images/logo.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -72,7 +80,7 @@ ${body}
 </main>
 <footer>
   <p class="made">Built with AI by ${esc(SITE.publisher)}</p>
-  <p><a href="/careers/">All careers</a> · <a href="/subjects/">What can I become with my subjects?</a> · <a href="/">Get 3 careers that fit you</a> · <a href="https://apprentice-pathway-explorer.vercel.app/">Apprentice Pathways Explorer</a></p>
+  <p><a href="/careers/">All careers</a> · <a href="/subjects/">What can I become with my subjects?</a> · <a href="/">Get 3 careers that fit you</a> · <a href="/faq/">FAQ</a> · <a href="/about/">About / who built this</a> · <a href="https://apprentice-pathway-explorer.vercel.app/">Apprentice Pathways Explorer</a></p>
 </footer>
 </body>
 </html>
@@ -254,6 +262,74 @@ write('class/index.html', page({
 }));
 pages.push({ loc: '/class/', pri: '0.8' });
 
+// ---------- /faq/ : what Nigerian students search about careers (AEO) ----------
+const HOME_FAQ = (() => { try {
+  const h = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
+  for (const m of h.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
+    const g = JSON.parse(m[1])['@graph'] || []; const f = g.find(x => x['@type'] === 'FAQPage');
+    if (f) return Object.fromEntries(f.mainEntity.map(q => [q.name, q.acceptedAnswer.text]));
+  } } catch (e) {} return {}; })();
+const CR = slug => C.find(c => c.slug === slug);
+const utmeQ = (slug, label) => { const c = CR(slug); return [`What JAMB (UTME) subjects do I need for ${label}?`, `English is always one of the four UTME subjects. For ${label}, the other three are usually ${c.utme.join(', ')}. ${c.time.charAt(0).toUpperCase() + c.time.slice(1)}. Always confirm in the current JAMB brochure.`, `/careers/${slug}/`]; };
+const fromHome = (q, href) => HOME_FAQ[q] ? [q, HOME_FAQ[q], href] : null;
+const SITE_FAQ = [
+  fromHome('How do I choose a career in Nigeria as a secondary school student?', '/#start'),
+  utmeQ('medical-doctor', 'Medicine (to become a doctor)'),
+  utmeQ('nurse', 'Nursing'),
+  ['What JAMB (UTME) subjects do I need for Law?', `English is always one of the four UTME subjects. For Law, the other three are usually ${CR('lawyer').utme.join(', ')}. Always confirm in the current JAMB brochure.`, '/careers/lawyer/'],
+  utmeQ('software-developer', 'Computer Science (to become a software developer)'),
+  ['What is the difference between university, polytechnic and college of education?', 'Universities award degrees such as BSc or BEng. Polytechnics award the National Diploma (ND) and Higher National Diploma (HND), with more hands-on training. Colleges of education award the NCE, mainly for people who want to teach. Admission into all three is through JAMB.', '/careers/polytechnic-and-college/'],
+  ['Can I go to university after ND or NCE?', 'Yes. Holders of ND, NCE and some other certificates can apply to university through JAMB Direct Entry, often into 200 level. Each university sets its own grade and subject rules, so check the current JAMB brochure and the university\'s website.', '/careers/university/'],
+  ['What can I become if I am in the Arts or Commercial class?', 'Many careers welcome Arts and Commercial students, for example lawyer, journalist, accountant, banker, economist, teacher and entrepreneur. Use "What can I become with my subjects?" to see careers that match the subjects you take.', '/subjects/'],
+  ['What is NABTEB?', 'NABTEB is the National Business and Technical Examinations Board. It runs exams for technical and business subjects, and its certificates (including Modular Trade Certificates) are a recognised route into skilled trades and further study.', '/careers/skilled-trades/'],
+  fromHome('Are skilled trades a good career in Nigeria?', '/careers/skilled-trades/'),
+  fromHome('How do I talk to my parents about a career?', '/'),
+  fromHome('Is Naija Career Compass AI free and private?', '/'),
+  ['Who built Naija Career Compass AI?', "Students of the ByteBusters coding club (Generative AI Team) at Yewa College, Ilaro, Ogun State, built it. ByteBusters is a programme of Odu'a Investment Foundation.", '/about/']
+].filter(Boolean);
+write('faq/index.html', page({
+  rel: 'faq/index.html', title: 'Career questions for Nigerian students | Naija Career Compass',
+  description: 'Simple answers for Nigerian students: choosing a career, JAMB subjects for medicine, law and computer science, polytechnic vs university, NABTEB.',
+  h1: 'Career questions and answers', crumbs: [['Home', '/'], ['FAQ', '/faq/']],
+  body: `
+  <p class="answer-box"><b>Quick answer:</b> start with what you enjoy and are good at, pick 2 or 3 careers to explore, check the subjects each one needs, and talk to a parent or teacher. University, polytechnic, college and skilled trades are all real routes.</p>
+  ${SITE_FAQ.map(([q, a, href]) => `<h2>${esc(q)}</h2>\n  <p>${esc(a)} <a href="${href}">Read more</a></p>`).join('\n  ')}
+  ${cta}`,
+  schema: [{ '@type': 'FAQPage', mainEntity: SITE_FAQ.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) }]
+}));
+pages.push({ loc: '/faq/', pri: '0.8' });
+
+// ---------- /about/ : who built this ----------
+write('about/index.html', page({
+  rel: 'about/index.html', title: 'About Naija Career Compass AI and who built it',
+  description: "Naija Career Compass AI was built by students of the ByteBusters coding club at Yewa College, Ilaro, Ogun State, a programme of Odu'a Investment Foundation.",
+  h1: 'About Naija Career Compass AI: who built this', crumbs: [['Home', '/'], ['About', '/about/']],
+  body: `
+  <p class="answer-box"><b>In short:</b> a free career guide for Nigerian secondary school students, made by students in the ByteBusters coding club at Yewa College, Ilaro, Ogun State. ByteBusters is run by Odu'a Investment Foundation.</p>
+  <h2>Why we built it</h2>
+  <p>Many of us choose subjects and careers without knowing what a job really involves, which UTME subjects it needs, or that polytechnics, colleges and skilled trades are good routes too. We wanted a free tool where any student can say what they enjoy and get three careers with real Nigerian routes.</p>
+  <h2>Who built it</h2>
+  <p>A team of students at the Yewa College ByteBusters centre, the Generative AI Team, planned the questions, wrote the career guides and coded the website, with guidance from the ByteBusters Centre Lead. We learned HTML, CSS, JavaScript, how to write safe and fair AI prompts, how to put a website online with Vercel, and how search engines read pages.</p>
+  <h2>What it is, and is not</h2>
+  <ul>
+    <li>It is a free tool that gives ideas to explore, not decisions.</li>
+    <li>It is <b>not</b> JAMB or a school. Subject and admission rules can change: always confirm in the current JAMB brochure and on the school's own website.</li>
+  </ul>
+  <p>Read the <a href="/faq/">questions and answers</a> or <a href="/#start">get 3 careers that fit you</a>.</p>`,
+  schema: [{ '@type': 'AboutPage', name: 'About Naija Career Compass AI', url: URL_ + '/about/', publisher: { '@id': URL_ + '/#org' } }]
+}));
+pages.push({ loc: '/about/', pri: '0.5' });
+
+// ---------- 404.html : friendly "page not found" (not in the sitemap) ----------
+write('404.html', page({
+  rel: '404.html', title: 'Page not found | Naija Career Compass',
+  description: 'This page could not be found. Browse all careers, find careers for your subjects, or ask the AI for 3 careers that fit you.',
+  h1: 'Sorry, we could not find that page', crumbs: [['Home', '/'], ['Page not found', '/404.html']],
+  body: `
+  <p>The link may be old or mistyped. Try one of these:</p>
+  <ul><li><a href="/">Get 3 careers that fit you</a></li><li><a href="/careers/">All careers</a></li><li><a href="/subjects/">What can I become with my subjects?</a></li><li><a href="/faq/">FAQ</a></li></ul>`
+}).replace('<meta name="robots" content="index, follow', '<meta name="robots" content="noindex, follow').replace(/\n<link rel="canonical"[^>]*>/, ''));
+
 // ---------- sitemap.xml, llms.txt, verification codes ----------
 write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${pages.map(p => `  <url><loc>${URL_}${p.loc}</loc><lastmod>${TODAY}</lastmod><priority>${p.pri}</priority></url>`).join('\n')}\n</urlset>\n`);
 const llms = fs.readFileSync(path.join(ROOT, 'llms.txt'), 'utf8').split('\n## Career guides')[0].trimEnd();
@@ -261,4 +337,13 @@ write('llms.txt', llms + `\n\n## Tools\n- [Class Mode](${URL_}/class/): free cla
 let index = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8').replace(/\n<meta name="(google-site-verification|msvalidate\.01)"[^>]*>/g, '');
 if (VERIFY) index = index.replace(/(<link rel="canonical"[^>]*>)/, '$1' + VERIFY);
 fs.writeFileSync(path.join(ROOT, 'index.html'), index);
+// ---------- llms-full.txt (GEO): the summary plus every answer in full ----------
+write('llms-full.txt', fs.readFileSync(path.join(ROOT, 'llms.txt'), 'utf8') + `
+## About
+Naija Career Compass AI was built by students of the ByteBusters coding club (Generative AI Team) at Yewa College, Ilaro, Ogun State, Nigeria, with guidance from the ByteBusters Centre Lead. ByteBusters is a programme of Odu'a Investment Foundation. Free, no sign-up. About page: ${URL_}/about/
+
+## Questions and answers (also at ${URL_}/faq/)
+${SITE_FAQ.map(([q, a]) => `### ${q}\n${a}\n`).join('\n')}
+## Every career in full
+${C.map(c => `### ${c.title}\n${c.does} Route: ${ROUTES[c.route][0]}. ${c.utme ? 'UTME subjects: English plus ' + c.utme.join(', ') + '. ' : ''}How long: ${c.time}. Ways in: ${c.routes.join(' ')}\nGuide: ${URL_}/careers/${c.slug}/\n`).join('\n')}`);
 console.log('Done:', pages.length, 'pages in the sitemap (' + C.length + ' careers).');
