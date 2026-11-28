@@ -127,5 +127,33 @@ function run(body, headers = {}) {
     const fs = require("fs"), path = require("path");
     assert(fs.readFileSync(path.join(__dirname, "../sitemap.xml"), "utf8").includes("/class/"));
   });
+  await ok("version 5: JAMB helper uses the career library, marks uncertain courses and sends readers to JAMB", () => {
+    const fs = require("fs"), path = require("path"), X = require("./extras"), { CAREERS } = require("./careers");
+    const h = fs.readFileSync(path.join(__dirname, "../jamb-subjects/index.html"), "utf8");
+    X.JAMB.forEach(j => { const c = CAREERS.find(x => x[0] === j[1]); assert(c && c[6], j[0] + " needs UTME subjects in careers.js"); assert(["established", "varies"].includes(j[2]), j[0]); assert(h.includes('id="' + j[1] + '"'), j[0]); });
+    assert(X.JAMB.some(j => j[2] === "varies") && (h.match(/varies: check/g) || []).length >= X.JAMB.filter(j => j[2] === "varies").length);
+    assert(h.includes("https://www.jamb.gov.ng") && h.includes("https://ibass.jamb.gov.ng") && /Always confirm before you register/.test(h));
+  });
+  await ok("version 5: scholarships have official https links or say so, and never print a deadline or amount", () => {
+    const fs = require("fs"), path = require("path"), X = require("./extras");
+    X.SCHOLARSHIPS.forEach(s => { assert(s.official === "" || /^https:\/\/[a-z0-9.-]+(\/[a-z0-9\/-]*)?$/.test(s.official), s.id); assert(!/₦|N\d|\b(19|20)\d\d\b(?! and earlier)/.test(s.who + s.level), s.id + " must not state amounts or dates"); });
+    const h = fs.readFileSync(path.join(__dirname, "../scholarships/index.html"), "utf8");
+    assert((h.match(/Check current dates/g) || []).length >= X.SCHOLARSHIPS.length && h.includes("Never pay anyone"));
+    const doc = fs.readFileSync(path.join(__dirname, "../careers/medical-doctor/index.html"), "utf8");
+    assert(doc.includes("/scholarships/#agbami-ameps") && doc.includes("/jamb-subjects/#medical-doctor"), "career pages link their scholarships and JAMB subjects");
+    assert(fs.readFileSync(path.join(__dirname, "../careers/nurse/index.html"), "utf8").includes("/day-in-the-life/#nurse"));
+  });
+  await ok("version 5: 8 day-in-the-life profiles, each labelled illustrative, with a real-story template", () => {
+    const fs = require("fs"), path = require("path"), X = require("./extras");
+    const h = fs.readFileSync(path.join(__dirname, "../day-in-the-life/index.html"), "utf8");
+    assert.strictEqual(X.DAYS.length, 8);
+    assert((h.match(/Illustrative example · not a real person/g) || []).length === 8);
+    assert(h.includes('id="real-story"') && h.includes("mailto:") && h.includes("https://wa.me/?text="));
+    const sm = fs.readFileSync(path.join(__dirname, "../sitemap.xml"), "utf8");
+    ["/jamb-subjects/", "/scholarships/", "/day-in-the-life/", "/whats-new/"].forEach(u => assert(sm.includes(u), u));
+    assert(fs.readFileSync(path.join(__dirname, "../whats-new/index.html"), "utf8").includes("the ByteBusters team at Yewa College"));
+    assert.strictEqual((fs.readFileSync(path.join(__dirname, "../llms.txt"), "utf8").match(/\n## Tools/g) || []).length, 1, "llms.txt is not repeated on every build");
+    assert(fs.readdirSync(path.join(__dirname, "../api")).filter(f => f.endsWith(".js")).length <= 12);
+  });
   console.log(passed + " checks passed");
 })();

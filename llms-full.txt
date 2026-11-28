@@ -24,21 +24,6 @@
 ## Tools
 - [Class Mode](https://naija-career-compass-ai.vercel.app/class/): free class codes for teachers; students use the career form and teachers see anonymous totals of career families, routes and subjects (no names or answers stored)
 
-## Tools
-- [Class Mode](https://naija-career-compass-ai.vercel.app/class/): free class codes for teachers; students use the career form and teachers see anonymous totals of career families, routes and subjects (no names or answers stored)
-
-## Tools
-- [Class Mode](https://naija-career-compass-ai.vercel.app/class/): free class codes for teachers; students use the career form and teachers see anonymous totals of career families, routes and subjects (no names or answers stored)
-
-## Tools
-- [Class Mode](https://naija-career-compass-ai.vercel.app/class/): free class codes for teachers; students use the career form and teachers see anonymous totals of career families, routes and subjects (no names or answers stored)
-
-## Tools
-- [Class Mode](https://naija-career-compass-ai.vercel.app/class/): free class codes for teachers; students use the career form and teachers see anonymous totals of career families, routes and subjects (no names or answers stored)
-
-## Tools
-- [Class Mode](https://naija-career-compass-ai.vercel.app/class/): free class codes for teachers; students use the career form and teachers see anonymous totals of career families, routes and subjects (no names or answers stored)
-
 ## Career guides (one page each: what they do, subjects, route, how long)
 - [How to become a Medical Doctor in Nigeria](https://naija-career-compass-ai.vercel.app/careers/medical-doctor/): A medical doctor finds out what is making people sick and treats them, in hospitals, clinics and communities. Route: University. Time: 6 years of study, plus 1 year housemanship. UTME: English, Physics, Chemistry, Biology.
 - [How to become a Pharmacist in Nigeria](https://naija-career-compass-ai.vercel.app/careers/pharmacist/): A pharmacist is the expert on medicines: how they are made, how they work and how to use them safely. Route: University. Time: 5 to 6 years, plus 1 year internship. UTME: English, Physics, Chemistry, Biology.
@@ -109,8 +94,11 @@
 - [How to become a Musician or Sound Engineer in Nigeria](https://naija-career-compass-ai.vercel.app/careers/musician-sound-engineer/): A musician performs or writes music; a sound engineer records and mixes it so it sounds right. Route: Skilled trade. Time: Skills grow over many years.
 - [How to become an Athlete or Sports Coach in Nigeria](https://naija-career-compass-ai.vercel.app/careers/sports-coach/): An athlete competes; a coach trains others to play well and stay fit and safe. Route: Polytechnic or College. Time: 3 to 4 years for NCE or degree; badges take less.
 
-## Tools
+## More tools
 - [What can I become with my subjects?](https://naija-career-compass-ai.vercel.app/subjects/): tick your subjects, see matching careers
+- [JAMB subject combinations](https://naija-career-compass-ai.vercel.app/jamb-subjects/): usual UTME subjects for 34 popular courses, marked "established" or "varies: check"; always confirm in the JAMB brochure
+- [Scholarships by career](https://naija-career-compass-ai.vercel.app/scholarships/): long-running Nigerian scholarship programmes with official links; dates change every year
+- [A day in the life](https://naija-career-compass-ai.vercel.app/day-in-the-life/): illustrative first-person profiles of 8 careers
 - [All careers by route](https://naija-career-compass-ai.vercel.app/careers/)
 
 ## About

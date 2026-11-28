@@ -16,6 +16,16 @@ Built with AI by Yewa College ByteBusters (Generative AI Team), for the ByteBust
 
 **New in version 4: the Career Library.** `tools/careers.js` holds 68 careers. `node tools/build.js` turns them into real pages ("How to become a ___ in Nigeria"), route pages, subject pages and the **"What can I become with my subjects?"** finder at `/subjects/`. To add a career: add one entry, run the build, then `node tools/test.js`. Search Console codes go in `tools/site.json`.
 
+**New in version 5 (by the ByteBusters team at Yewa College):** data in `tools/extras.js`, pages made by `node tools/build.js`. See also `/whats-new/`.
+
+| Feature | Page | What it does | Accuracy rules |
+|---|---|---|---|
+| **JAMB subject-combination helper** | `/jamb-subjects/` | Usual UTME subjects for 34 popular courses (taken from `tools/careers.js`, so there is one source), "check my combination", course search, and a link field per course where a student saves the brochure or university page they checked (on the phone only) | Each course is marked **well established** or **varies: check**; a big box sends readers to the JAMB brochure (IBASS, jamb.gov.ng) and the university's own page |
+| **Scholarships linked to careers** | `/scholarships/` and every career page | 5 long-running programmes (NNPC/TotalEnergies NMSS, NLNG UGSS, Agbami AMEPS, MTN Foundation STS and Scholarship for Blind Students), filter by career, "never pay anyone" warning | Only programmes confirmed by web search on 28 Nov 2026 as running for several years. No deadlines or amounts: every card says **check current dates**. `official: ""` (Agbami) means no single official page could be confirmed, and the card says so |
+| **A day in the life** | `/day-in-the-life/` | 8 short first-person profiles (nurse, software developer, solar installer, civil engineer, fashion designer, teacher, agronomist, lab scientist) and a "send a real story" template by email or WhatsApp | Every profile is labelled **Illustrative example · not a real person**. Put the address for real stories in `storyEmail` in `tools/site.json` (empty = the email opens with no address) |
+
+No new server function, no personal data collected. Tests: `node tools/test.js` (20 checks).
+
 ---
 
 ## What the files do
